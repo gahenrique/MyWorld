@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9mD-vN-yHJ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="9JR-fS-R3U">
+            <objects>
+                <viewController id="8sD-g3-dVg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lXr-PI-Kkn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="cAl-WZ-c5f"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="GearIcon" selectedImage="GearIconFill" id="cNC-zk-cOH"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iob-mK-LhI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="543" y="-340"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Wnb-2c-Dya">
+            <objects>
+                <viewController id="wVM-ZR-3x0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="INc-Rg-WhB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="QTB-NH-pzK"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="ListIcon" selectedImage="ListIconFill" id="5cm-CV-rTo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ws8-R9-Pnp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="543" y="-994"/>
+        </scene>
+        <!--World View Controller-->
+        <scene sceneID="RZK-ER-YZ2">
+            <objects>
+                <viewController id="a1b-uR-FqR" customClass="WorldViewController" customModule="MyWorld" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gkG-eS-Ztg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5TA-HN-O9U">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9m-h1-rfV" customClass="WorldView" customModule="MyWorld" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="4096" height="2048"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="venus2d" translatesAutoresizingMaskIntoConstraints="NO" id="EXE-ta-DBD">
+                                                <rect key="frame" x="0.0" y="0.0" width="4096" height="2048"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="4096" id="FlB-Vf-hnx"/>
+                                            <constraint firstAttribute="trailing" secondItem="EXE-ta-DBD" secondAttribute="trailing" id="Q9e-Jh-oSF"/>
+                                            <constraint firstItem="EXE-ta-DBD" firstAttribute="top" secondItem="E9m-h1-rfV" secondAttribute="top" id="SuB-MQ-ape"/>
+                                            <constraint firstItem="EXE-ta-DBD" firstAttribute="leading" secondItem="E9m-h1-rfV" secondAttribute="leading" id="eBe-K0-IQ5"/>
+                                            <constraint firstAttribute="height" constant="2048" id="gN0-R1-GrC"/>
+                                            <constraint firstAttribute="bottom" secondItem="EXE-ta-DBD" secondAttribute="bottom" id="pl1-tC-K93"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="E9m-h1-rfV" firstAttribute="top" secondItem="5TA-HN-O9U" secondAttribute="top" id="agR-wD-fr7"/>
+                                    <constraint firstAttribute="trailing" secondItem="E9m-h1-rfV" secondAttribute="trailing" constant="-3682" id="bMl-iR-Rpz"/>
+                                    <constraint firstItem="E9m-h1-rfV" firstAttribute="leading" secondItem="5TA-HN-O9U" secondAttribute="leading" id="iUx-es-mFA"/>
+                                    <constraint firstAttribute="bottom" secondItem="E9m-h1-rfV" secondAttribute="bottom" constant="-1279" id="lrY-yB-m7w"/>
+                                </constraints>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Area" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMm-Oy-H8G">
+                                <rect key="frame" x="25" y="94" width="364" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Kfh-SY-Dwv" firstAttribute="trailing" secondItem="kMm-Oy-H8G" secondAttribute="trailing" constant="25" id="3Ri-Mw-v8l"/>
+                            <constraint firstItem="Kfh-SY-Dwv" firstAttribute="trailing" secondItem="5TA-HN-O9U" secondAttribute="trailing" id="hHD-yQ-dcS"/>
+                            <constraint firstItem="5TA-HN-O9U" firstAttribute="leading" secondItem="Kfh-SY-Dwv" secondAttribute="leading" id="jY5-LF-vZA"/>
+                            <constraint firstItem="kMm-Oy-H8G" firstAttribute="leading" secondItem="Kfh-SY-Dwv" secondAttribute="leading" constant="25" id="jjd-x4-sFP"/>
+                            <constraint firstItem="kMm-Oy-H8G" firstAttribute="top" secondItem="Kfh-SY-Dwv" secondAttribute="top" constant="50" id="kAY-DA-583"/>
+                            <constraint firstItem="5TA-HN-O9U" firstAttribute="top" secondItem="Kfh-SY-Dwv" secondAttribute="top" id="knV-MH-DXs"/>
+                            <constraint firstItem="Kfh-SY-Dwv" firstAttribute="bottom" secondItem="5TA-HN-O9U" secondAttribute="bottom" id="zaG-58-Swu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kfh-SY-Dwv"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="PlanetIcon" selectedImage="PlanetIconFill" id="wnP-ng-IH6"/>
+                    <connections>
+                        <outlet property="availableAreaLbl" destination="kMm-Oy-H8G" id="OVI-F6-YuE"/>
+                        <outlet property="scrollView" destination="5TA-HN-O9U" id="8GS-mM-eFZ"/>
+                        <outlet property="worldView" destination="E9m-h1-rfV" id="k3b-fp-gPJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v4d-Ym-BoI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="543" y="-1696"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="vAS-5P-Ovb">
+            <objects>
+                <tabBarController id="9mD-vN-yHJ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BrF-LE-7y8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="selectedImageTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="a1b-uR-FqR" kind="relationship" relationship="viewControllers" id="8ef-EQ-fLP"/>
+                        <segue destination="wVM-ZR-3x0" kind="relationship" relationship="viewControllers" id="wib-Cf-U1z"/>
+                        <segue destination="8sD-g3-dVg" kind="relationship" relationship="viewControllers" id="rqV-vV-b0H"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3FX-J1-wcb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-964" y="-918"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="GearIcon" width="25" height="25"/>
+        <image name="GearIconFill" width="25" height="25"/>
+        <image name="ListIcon" width="25" height="25"/>
+        <image name="ListIconFill" width="25" height="25"/>
+        <image name="PlanetIcon" width="25" height="25"/>
+        <image name="PlanetIconFill" width="25" height="25"/>
+        <image name="venus2d" width="4096" height="2048"/>
+    </resources>
+</document>
