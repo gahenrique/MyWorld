@@ -58,9 +58,6 @@ class TerritoryInfoViewController: UIViewController {
     }
     
     @objc func give() {
-        //        delegate?.giveTerritory()
-        //        navigationItem.rightBarButtonItem?.isEnabled = false
-        
         guard let vc = Bundle.main.loadNibNamed("GiveTerritoryView", owner: nil, options: nil)?.first as? GiveTerritoryViewController else {return}
         vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)

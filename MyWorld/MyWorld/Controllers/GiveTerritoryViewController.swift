@@ -30,9 +30,10 @@ class GiveTerritoryViewController: UIViewController {
     
 
     @objc private func confirm() {
-        guard let regentName = regentTextField.text else { return }
+        guard let vc = Bundle.main.loadNibNamed("ContractView", owner: nil, options: nil)?.first as? ContractViewController,
+            let regentName = regentTextField.text else { return }
         delegate?.giveTerritory(regent: regentName)
-        dismiss(animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func textFieldValueChanged(_ sender: Any) {
