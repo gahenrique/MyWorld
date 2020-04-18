@@ -7,22 +7,85 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Config View Controller-->
         <scene sceneID="9JR-fS-R3U">
             <objects>
-                <viewController id="8sD-g3-dVg" sceneMemberID="viewController">
+                <viewController id="8sD-g3-dVg" customClass="ConfigViewController" customModule="MyWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lXr-PI-Kkn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oz0-Ix-D9N" userLabel="Ceres Button">
+                                <rect key="frame" x="214" y="314" width="165" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="165" id="Ow3-uP-Pty"/>
+                                    <constraint firstAttribute="height" constant="85" id="gwL-kT-k77"/>
+                                </constraints>
+                                <state key="normal" image="ceresButton"/>
+                                <connections>
+                                    <action selector="ceresSelected:" destination="8sD-g3-dVg" eventType="touchUpInside" id="ilf-52-yEN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfb-3X-SYl" userLabel="Venus Button">
+                                <rect key="frame" x="35" y="314" width="165" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="165" id="BV4-su-J0c"/>
+                                    <constraint firstAttribute="height" constant="85" id="Tui-ss-BHn"/>
+                                </constraints>
+                                <state key="normal" image="venusButton"/>
+                                <connections>
+                                    <action selector="venusSelected:" destination="8sD-g3-dVg" eventType="touchUpInside" id="6up-vi-a4r"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione o mundo que deseja:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxz-sT-kCx">
+                                <rect key="frame" x="35" y="285" width="239" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTO-8g-QOG">
+                                <rect key="frame" x="146" y="514" width="122" height="30"/>
+                                <state key="normal" title="Criar novo mundo"/>
+                                <connections>
+                                    <action selector="createNewWorld:" destination="8sD-g3-dVg" eventType="touchUpInside" id="g4A-YT-7tK"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todos os territórios atuais serão perdidos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjd-7L-Wyb">
+                                <rect key="frame" x="89" y="554" width="236" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Xfb-3X-SYl" firstAttribute="leading" secondItem="cAl-WZ-c5f" secondAttribute="leading" constant="35" id="0fN-fU-mOu"/>
+                            <constraint firstItem="cAl-WZ-c5f" firstAttribute="trailing" secondItem="yTO-8g-QOG" secondAttribute="trailing" constant="146" id="0jJ-WM-4Vu"/>
+                            <constraint firstItem="cAl-WZ-c5f" firstAttribute="trailing" secondItem="jxz-sT-kCx" secondAttribute="trailing" constant="140" id="2Qb-Wy-nyI"/>
+                            <constraint firstItem="oz0-Ix-D9N" firstAttribute="top" secondItem="jxz-sT-kCx" secondAttribute="bottom" constant="8" id="ETF-XO-RoM"/>
+                            <constraint firstItem="Xfb-3X-SYl" firstAttribute="top" secondItem="cAl-WZ-c5f" secondAttribute="top" constant="270" id="IS7-oh-imN"/>
+                            <constraint firstItem="jxz-sT-kCx" firstAttribute="leading" secondItem="cAl-WZ-c5f" secondAttribute="leading" constant="35" id="PL5-Sb-wX9"/>
+                            <constraint firstItem="sjd-7L-Wyb" firstAttribute="leading" secondItem="cAl-WZ-c5f" secondAttribute="leading" constant="89" id="UNi-k1-WLq"/>
+                            <constraint firstItem="oz0-Ix-D9N" firstAttribute="top" secondItem="cAl-WZ-c5f" secondAttribute="top" constant="270" id="VIQ-n1-VSv"/>
+                            <constraint firstItem="cAl-WZ-c5f" firstAttribute="trailing" secondItem="oz0-Ix-D9N" secondAttribute="trailing" constant="35" id="Vwh-bI-aVZ"/>
+                            <constraint firstItem="cAl-WZ-c5f" firstAttribute="bottom" secondItem="yTO-8g-QOG" secondAttribute="bottom" constant="269" id="aan-uz-Jra"/>
+                            <constraint firstItem="sjd-7L-Wyb" firstAttribute="top" secondItem="yTO-8g-QOG" secondAttribute="bottom" constant="10" id="gLg-YN-d6b"/>
+                            <constraint firstItem="yTO-8g-QOG" firstAttribute="leading" secondItem="cAl-WZ-c5f" secondAttribute="leading" constant="146" id="n4D-CB-Zio"/>
+                            <constraint firstItem="cAl-WZ-c5f" firstAttribute="trailing" secondItem="sjd-7L-Wyb" secondAttribute="trailing" constant="89" id="oz3-Ot-YmM"/>
+                            <constraint firstItem="yTO-8g-QOG" firstAttribute="top" secondItem="oz0-Ix-D9N" secondAttribute="bottom" constant="115" id="wbn-3e-XMY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cAl-WZ-c5f"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="GearIcon" selectedImage="GearIconFill" id="cNC-zk-cOH"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="ceresButton" destination="oz0-Ix-D9N" id="nEX-Rs-WQc"/>
+                        <outlet property="venusButton" destination="Xfb-3X-SYl" id="2hf-dU-izd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iob-mK-LhI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="543" y="-340"/>
+            <point key="canvasLocation" x="542.02898550724638" y="-340.17857142857139"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Wnb-2c-Dya">
@@ -113,6 +176,7 @@
                     <connections>
                         <outlet property="availableAreaLbl" destination="kMm-Oy-H8G" id="OVI-F6-YuE"/>
                         <outlet property="scrollView" destination="5TA-HN-O9U" id="8GS-mM-eFZ"/>
+                        <outlet property="worldImage" destination="EXE-ta-DBD" id="4ne-7c-1sX"/>
                         <outlet property="worldView" destination="E9m-h1-rfV" id="k3b-fp-gPJ"/>
                     </connections>
                 </viewController>
@@ -148,7 +212,9 @@
         <image name="ListIconFill" width="25" height="25"/>
         <image name="PlanetIcon" width="25" height="25"/>
         <image name="PlanetIconFill" width="25" height="25"/>
+        <image name="ceresButton" width="160" height="80"/>
         <image name="map.fill" catalog="system" width="128" height="113"/>
         <image name="venus2d" width="4096" height="2048"/>
+        <image name="venusButton" width="160" height="80"/>
     </resources>
 </document>

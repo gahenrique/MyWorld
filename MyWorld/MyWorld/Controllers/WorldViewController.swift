@@ -14,6 +14,7 @@ class WorldViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var worldView: WorldView!
     @IBOutlet weak var availableAreaLbl: UILabel!
+    @IBOutlet weak var worldImage: UIImageView!
     
     var world: World? {
         get {
@@ -23,11 +24,10 @@ class WorldViewController: UIViewController {
     }
     var territories: [Territory] = []
     var finalDiagram: Diagram!
-    var availableArea: CGFloat! {
-        didSet {
-            // Corrigindo um pequeno erro de precisao evitando label com -0.00
-            if availableArea < 0 { availableArea = 0 }
-            availableAreaLbl.text = "Available area: " + String(format: "%.2f", availableArea)
+    var availableArea: CGFloat? {
+        get {
+            guard let world = world else { return nil }
+            return world.getAvailableArea()
         }
     }
     var selectedTerritory: Territory?
@@ -44,22 +44,15 @@ class WorldViewController: UIViewController {
         scrollView.minimumZoomScale = CGFloat(minZoom)
         scrollView.maximumZoomScale = CGFloat(4)
         scrollView.setZoomScale(scrollView.minimumZoomScale, animated: false)
-        
-        availableArea = worldView.bounds.width * worldView.bounds.height
-        
-        drawTerritories()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     
     @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
         let loc = recognizer.location(in: worldView)
         if !worldView.bounds.contains(loc) { return }
+        guard let world = world else { return }
 
-        let territory = world?.getClosestTerritory(point: loc)
+        let territory = world.getClosestTerritory(point: loc)
         selectedTerritory = territory
         
         guard let vc = Bundle.main.loadNibNamed("TerritoryInfoView", owner: nil, options: nil)?.first as? TerritoryInfoViewController else {return}
@@ -78,8 +71,20 @@ class WorldViewController: UIViewController {
         return CGFloat(sqrt(xDist * xDist + yDist * yDist))
     }
     
+    func initWorldView() {
+        guard let world = world, let availableArea = availableArea else { return }
+        
+        if world.type == .venus { worldImage.image = UIImage(named: "venus2d") }
+        else if world.type == .ceres { worldImage.image = UIImage(named: "ceres2d") }
+        
+        availableAreaLbl.text = "Área disponível: " + String(format: "%.2f", availableArea)
+        
+        drawTerritories()
+    }
+    
     func drawTerritories() {
         guard let world = world else {return}
+        if let subLayers = worldView.layer.sublayers {worldView.layer.sublayers?.removeLast(subLayers.count - 1)}
         for territory in world.territories {
             worldView.layer.addSublayer(territory.layer)
         }
@@ -97,7 +102,8 @@ extension WorldViewController: UIScrollViewDelegate, TerritoryInfoViewController
             selectedTerritory.hasOwner.toggle()
             selectedTerritory.layer.fillColor = CGColor(srgbRed: 255, green: 0, blue: 0, alpha: 0.5)
             
-            availableArea -= selectedTerritory.area
+            guard let availableArea = availableArea else {return}
+            availableAreaLbl.text = "Área disponível: " + String(format: "%.2f", availableArea)
         }
     }
     

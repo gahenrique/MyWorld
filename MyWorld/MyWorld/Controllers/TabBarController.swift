@@ -8,27 +8,26 @@
 
 import UIKit
 
-class TabBarController: UITabBarController, UITabBarControllerDelegate {
+class TabBarController: UITabBarController {
     
     var world: World?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        delegate = self
         
-        world = World(worldRect: CGRect(x: 0, y: 0, width: 4096, height: 2048))
+        createNewWorld(withType: .venus)
     }
     
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if let _ = viewController as? WorldViewController {
-            print("world")
-        } else {
-            print("outro")
-        }
+    func createNewWorld(withType type: WorldType) {
+        world = World(worldRect: CGRect(x: 0, y: 0, width: 4096, height: 2048), type: type)
+        
+        selectedIndex = 0
+        
+        guard let worldVC = viewControllers?.first(where: { (vc) -> Bool in
+            if let _ = vc as? WorldViewController { return true}
+            return false
+        }) as? WorldViewController else { return }
+        
+        worldVC.initWorldView()
     }
-    
-    
-    
-
 }

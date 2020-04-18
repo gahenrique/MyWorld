@@ -10,10 +10,12 @@ import FortunesAlgorithm
 import UIKit
 
 public class World {
+    var type: WorldType
     var territories: [Territory] = []
     var worldRect: CGRect
     
-    init(worldRect: CGRect) {
+    init(worldRect: CGRect, type: WorldType) {
+        self.type = type
         self.worldRect = worldRect
         
         createTerritories()
@@ -70,10 +72,20 @@ public class World {
         return territories[minIndex]
     }
     
-    func distance(_ a: CGPoint, _ b: CGPoint) -> CGFloat {
+    private func distance(_ a: CGPoint, _ b: CGPoint) -> CGFloat {
         let xDist = a.x - b.x
         let yDist = a.y - b.y
         return CGFloat(sqrt(xDist * xDist + yDist * yDist))
+    }
+    
+    func getAvailableArea() -> CGFloat{
+        var available: CGFloat = worldRect.width * worldRect.height
+        
+        for t in territories {
+            if t.hasOwner {available -= t.area}
+        }
+        
+        return available > 0 ? available : 0
     }
 }
 
@@ -97,7 +109,7 @@ class Territory {
         self.layer = CAShapeLayer()
         
         self.createLayer(territoryColor: UIColor.clear.cgColor,
-                         lineColor: CGColor(srgbRed: 255, green: 195, blue: 11, alpha: 0.8))
+                         lineColor: CGColor(srgbRed: 0, green: 0, blue: 255, alpha: 0.8))
         
         if getPolygonOrientation(points: self.vertices) == 1 {
             print("clockwise")
@@ -107,7 +119,7 @@ class Territory {
         self.calculatePolygon()
     }
     
-    func calculatePolygon() {
+    private func calculatePolygon() {
         var tmp: CGFloat = 0
         
         for i in 0 ..< vertices.count - 1 {
@@ -131,7 +143,7 @@ class Territory {
      0  -> colinear
      1  -> clockwise
      */
-    func getPolygonOrientation(points: [CGPoint]) -> Int {
+    private func getPolygonOrientation(points: [CGPoint]) -> Int {
         let val = (points[1].y - points[0].y) * (points[2].x - points[1].x) -
             (points[1].x - points[0].x) * (points[2].y - points[1].y);
         
@@ -140,7 +152,7 @@ class Territory {
         return (val > 0) ? -1 : 1
     }
     
-    func createLayer(territoryColor: CGColor, lineColor: CGColor) {
+    private func createLayer(territoryColor: CGColor, lineColor: CGColor) {
         let path = UIBezierPath()
         path.move(to: vertices[0])
         for v in vertices {
@@ -155,4 +167,9 @@ class Territory {
         layer.lineWidth = 3
     }
 
+}
+
+public enum WorldType {
+    case venus
+    case ceres
 }
