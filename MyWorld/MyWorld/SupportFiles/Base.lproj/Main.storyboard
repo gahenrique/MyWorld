@@ -82,15 +82,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEq-Wu-FtI" userLabel="Centralize World">
+                                <rect key="frame" x="355.5" y="173" width="33.5" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="CentralizeIcon">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <state key="selected" image="map.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="centralizeWorld:" destination="a1b-uR-FqR" eventType="touchUpInside" id="a4i-5Y-gjg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Kfh-SY-Dwv" firstAttribute="trailing" secondItem="kMm-Oy-H8G" secondAttribute="trailing" constant="25" id="3Ri-Mw-v8l"/>
+                            <constraint firstItem="Kfh-SY-Dwv" firstAttribute="trailing" secondItem="bEq-Wu-FtI" secondAttribute="trailing" constant="25" id="AMq-bn-ZAR"/>
                             <constraint firstItem="Kfh-SY-Dwv" firstAttribute="trailing" secondItem="5TA-HN-O9U" secondAttribute="trailing" id="hHD-yQ-dcS"/>
                             <constraint firstItem="5TA-HN-O9U" firstAttribute="leading" secondItem="Kfh-SY-Dwv" secondAttribute="leading" id="jY5-LF-vZA"/>
                             <constraint firstItem="kMm-Oy-H8G" firstAttribute="leading" secondItem="Kfh-SY-Dwv" secondAttribute="leading" constant="25" id="jjd-x4-sFP"/>
                             <constraint firstItem="kMm-Oy-H8G" firstAttribute="top" secondItem="Kfh-SY-Dwv" secondAttribute="top" constant="50" id="kAY-DA-583"/>
                             <constraint firstItem="5TA-HN-O9U" firstAttribute="top" secondItem="Kfh-SY-Dwv" secondAttribute="top" id="knV-MH-DXs"/>
+                            <constraint firstItem="bEq-Wu-FtI" firstAttribute="top" secondItem="kMm-Oy-H8G" secondAttribute="bottom" constant="50" id="wyi-ob-23l"/>
                             <constraint firstItem="Kfh-SY-Dwv" firstAttribute="bottom" secondItem="5TA-HN-O9U" secondAttribute="bottom" id="zaG-58-Swu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kfh-SY-Dwv"/>
@@ -113,7 +127,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BrF-LE-7y8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="selectedImageTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="selectedImageTintColor" red="0.73725490196078436" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="deviceRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="a1b-uR-FqR" kind="relationship" relationship="viewControllers" id="8ef-EQ-fLP"/>
@@ -127,12 +141,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CentralizeIcon" width="33.5" height="33.5"/>
         <image name="GearIcon" width="25" height="25"/>
         <image name="GearIconFill" width="25" height="25"/>
         <image name="ListIcon" width="25" height="25"/>
         <image name="ListIconFill" width="25" height="25"/>
         <image name="PlanetIcon" width="25" height="25"/>
         <image name="PlanetIconFill" width="25" height="25"/>
+        <image name="map.fill" catalog="system" width="128" height="113"/>
         <image name="venus2d" width="4096" height="2048"/>
     </resources>
 </document>
