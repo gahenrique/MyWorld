@@ -62,7 +62,7 @@ class WorldViewController: UIViewController {
         let territory = world?.getClosestTerritory(point: loc)
         selectedTerritory = territory
         
-        guard let vc = Bundle.main.loadNibNamed("TerritoryInfoView", owner: self, options: nil)?.first as? TerritoryInfoViewController else {return}
+        guard let vc = Bundle.main.loadNibNamed("TerritoryInfoView", owner: nil, options: nil)?.first as? TerritoryInfoViewController else {return}
         vc.delegate = self
         let navigationController = UINavigationController(rootViewController: vc)
         present(navigationController, animated: true, completion: nil)
@@ -84,9 +84,12 @@ class WorldViewController: UIViewController {
 }
 
 extension WorldViewController: UIScrollViewDelegate, TerritoryInfoViewControllerDelegate {
-    func giveTerritory() {
-        guard let selectedTerritory = selectedTerritory else {return}
+    func giveTerritory(regent: String) {
+        guard let selectedTerritory = selectedTerritory else { return }
+        
         if !selectedTerritory.hasOwner {
+            selectedTerritory.regent = regent
+            
             selectedTerritory.hasOwner.toggle()
             selectedTerritory.layer.fillColor = CGColor(srgbRed: 255, green: 0, blue: 0, alpha: 0.5)
             

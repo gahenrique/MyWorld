@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C005A775244A60C7008A5ECF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005A774244A60C7008A5ECF /* TabBarController.swift */; };
 		C005A777244A61EA008A5ECF /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005A776244A61EA008A5ECF /* World.swift */; };
+		C005A779244AEEAB008A5ECF /* GiveTerritoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C005A778244AEEAB008A5ECF /* GiveTerritoryView.xib */; };
+		C005A77B244AF038008A5ECF /* GiveTerritoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005A77A244AF038008A5ECF /* GiveTerritoryViewController.swift */; };
 		C00BD723244A46FF0063A94C /* TerritoryInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C00BD722244A46FF0063A94C /* TerritoryInfoView.xib */; };
 		C00BD725244A47570063A94C /* TerritoryInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00BD724244A47570063A94C /* TerritoryInfoViewController.swift */; };
 		C01692F52449182200E4F6F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C01692F42449182200E4F6F7 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		C005A774244A60C7008A5ECF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C005A776244A61EA008A5ECF /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
+		C005A778244AEEAB008A5ECF /* GiveTerritoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiveTerritoryView.xib; sourceTree = "<group>"; };
+		C005A77A244AF038008A5ECF /* GiveTerritoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveTerritoryViewController.swift; sourceTree = "<group>"; };
 		C00BD722244A46FF0063A94C /* TerritoryInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TerritoryInfoView.xib; sourceTree = "<group>"; };
 		C00BD724244A47570063A94C /* TerritoryInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerritoryInfoViewController.swift; sourceTree = "<group>"; };
 		C01692F42449182200E4F6F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			children = (
 				C0A8BC4924493AD300F87C1B /* WorldView.swift */,
 				C00BD722244A46FF0063A94C /* TerritoryInfoView.xib */,
+				C005A778244AEEAB008A5ECF /* GiveTerritoryView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -112,9 +117,10 @@
 		C0A8BC46244939B800F87C1B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C005A774244A60C7008A5ECF /* TabBarController.swift */,
 				C0A8BC47244939FB00F87C1B /* WorldViewController.swift */,
 				C00BD724244A47570063A94C /* TerritoryInfoViewController.swift */,
-				C005A774244A60C7008A5ECF /* TabBarController.swift */,
+				C005A77A244AF038008A5ECF /* GiveTerritoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +192,7 @@
 				C0A04EF12449100F0003E1AE /* LaunchScreen.storyboard in Resources */,
 				C00BD723244A46FF0063A94C /* TerritoryInfoView.xib in Resources */,
 				C01692F52449182200E4F6F7 /* Assets.xcassets in Resources */,
+				C005A779244AEEAB008A5ECF /* GiveTerritoryView.xib in Resources */,
 				C0A04EE92449100D0003E1AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,6 +212,7 @@
 				C0A04EE42449100D0003E1AE /* SceneDelegate.swift in Sources */,
 				C005A777244A61EA008A5ECF /* World.swift in Sources */,
 				C0A8BC48244939FB00F87C1B /* WorldViewController.swift in Sources */,
+				C005A77B244AF038008A5ECF /* GiveTerritoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

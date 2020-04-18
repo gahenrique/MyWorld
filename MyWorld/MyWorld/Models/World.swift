@@ -79,27 +79,13 @@ public class World {
 
 class Territory {
     var code: Int
+    var regent: String?
     var site: CGPoint
     var area: CGFloat
     var centroid: CGPoint
     var vertices: [CGPoint]
     var layer: CAShapeLayer
     var hasOwner: Bool = false
-    
-    /*
-     Returns:
-     -1 -> counter clockwise
-     0  -> colinear
-     1  -> clockwise
-     */
-    func getPolygonOrientation(points: [CGPoint]) -> Int {
-        let val = (points[1].y - points[0].y) * (points[2].x - points[1].x) -
-            (points[1].x - points[0].x) * (points[2].y - points[1].y);
-        
-        if val == 0 { return 0 }
-        
-        return (val > 0) ? -1 : 1
-    }
     
     init(code: Int, site: CGPoint, vertices: [CGPoint]) {
         self.code = code
@@ -137,6 +123,21 @@ class Territory {
         centroid.y *= (1 / (6*area))
         
         area = abs(area)
+    }
+    
+    /*
+     Returns:
+     -1 -> counter clockwise
+     0  -> colinear
+     1  -> clockwise
+     */
+    func getPolygonOrientation(points: [CGPoint]) -> Int {
+        let val = (points[1].y - points[0].y) * (points[2].x - points[1].x) -
+            (points[1].x - points[0].x) * (points[2].y - points[1].y);
+        
+        if val == 0 { return 0 }
+        
+        return (val > 0) ? -1 : 1
     }
     
     func createLayer(territoryColor: CGColor, lineColor: CGColor) {

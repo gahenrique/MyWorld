@@ -10,41 +10,47 @@ import UIKit
 
 protocol TerritoryInfoViewControllerDelegate {
     func loadTerritoryInfo(completion: (_ territory: Territory) -> Void)
-    func giveTerritory()
+    func giveTerritory(regent: String)
 }
 
 class TerritoryInfoViewController: UIViewController {
     
     @IBOutlet weak var territoryView: UIView!
+    @IBOutlet weak var ownerLbl: UILabel!
     @IBOutlet weak var totalAreaLbl: UILabel!
     @IBOutlet weak var codeLbl: UILabel!
     
     var delegate: TerritoryInfoViewControllerDelegate?
-        
+    var territory: Territory!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Info"
-                
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(close))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Give", style: .done, target: self, action: #selector(give))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Give", style: .plain, target: self, action: #selector(give))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         
         delegate?.loadTerritoryInfo(completion: { (territory) in
-            codeLbl.text = "Código: \(territory.code)"
-            totalAreaLbl.text = "Área total: " + String(format: "%.2f", territory.area)
-            
-            if territory.hasOwner { navigationItem.rightBarButtonItem?.isEnabled = false }
-            
-            guard let territorySize = territory.layer.path?.boundingBox.size else { return }
-            DispatchQueue.main.async {
-                self.drawTerritory(vertices: territory.vertices, size: territorySize)
-            }
-            
+            self.territory = territory
         })
+        
+        codeLbl.text = "Código: \(territory.code)"
+        totalAreaLbl.text = "Área total: " + String(format: "%.2f", territory.area)
+        if territory.hasOwner {
+            navigationItem.rightBarButtonItem?.isEnabled = false
+//            ownerLbl.font = UIFont.systemFont(ofSize: 17)
+            ownerLbl.textColor = .label
+            ownerLbl.text = "Regente: " + territory.regent!
+        }
+        guard let territorySize = territory.layer.path?.boundingBox.size else { return }
+        DispatchQueue.main.async {
+            self.drawTerritory(vertices: self.territory.vertices, size: territorySize)
+        }
     }
     
     @objc func close() {
@@ -52,13 +58,17 @@ class TerritoryInfoViewController: UIViewController {
     }
     
     @objc func give() {
-        delegate?.giveTerritory()
-        navigationItem.rightBarButtonItem?.isEnabled = false
+        //        delegate?.giveTerritory()
+        //        navigationItem.rightBarButtonItem?.isEnabled = false
+        
+        guard let vc = Bundle.main.loadNibNamed("GiveTerritoryView", owner: nil, options: nil)?.first as? GiveTerritoryViewController else {return}
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     private func drawTerritory(vertices: [CGPoint], size: CGSize) {
         if let _ = territoryView.layer.sublayers { return }
-        
         let path = UIBezierPath()
         let offsetTerritoryView: CGSize = CGSize(width: territoryView.bounds.width * 0.8, height: territoryView.bounds.height * 0.8)
         let targetSize: CGSize = CGSize.aspectFit(size, offsetTerritoryView)
@@ -83,7 +93,7 @@ class TerritoryInfoViewController: UIViewController {
         
         let offsetX = territoryView.bounds.midX - layerPath.boundingBox.midX
         let offsetY = territoryView.bounds.midY - layerPath.boundingBox.midY
-
+        
         layer.position.x += offsetX
         layer.position.y += offsetY
         territoryView.layer.addSublayer(layer)
@@ -99,6 +109,12 @@ class TerritoryInfoViewController: UIViewController {
     }
 }
 
+extension TerritoryInfoViewController: GiveTerritoryViewControllerDelegate {
+    func giveTerritory(regent: String) {
+        delegate?.giveTerritory(regent: regent)
+    }
+}
+
 extension CGSize {
     static func aspectFit(_ aspectRatio : CGSize, _ boundingSize: CGSize) -> CGSize {
         let aspectRatio = aspectRatio
@@ -106,7 +122,7 @@ extension CGSize {
         
         let mW = boundingSize.width / aspectRatio.width;
         let mH = boundingSize.height / aspectRatio.height;
-
+        
         if( mH < mW ) {
             boundingSize.width = boundingSize.height / aspectRatio.height * aspectRatio.width;
         }
@@ -123,7 +139,7 @@ extension CGSize {
         
         let mW = minimumSize.width / aspectRatio.width;
         let mH = minimumSize.height / aspectRatio.height;
-
+        
         if( mH > mW ) {
             minimumSize.width = minimumSize.height / aspectRatio.height * aspectRatio.width;
         }
