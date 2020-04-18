@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C005A775244A60C7008A5ECF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005A774244A60C7008A5ECF /* TabBarController.swift */; };
+		C005A777244A61EA008A5ECF /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005A776244A61EA008A5ECF /* World.swift */; };
+		C00BD723244A46FF0063A94C /* TerritoryInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C00BD722244A46FF0063A94C /* TerritoryInfoView.xib */; };
+		C00BD725244A47570063A94C /* TerritoryInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00BD724244A47570063A94C /* TerritoryInfoViewController.swift */; };
 		C01692F52449182200E4F6F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C01692F42449182200E4F6F7 /* Assets.xcassets */; };
 		C0A04EE22449100D0003E1AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A04EE12449100D0003E1AE /* AppDelegate.swift */; };
 		C0A04EE42449100D0003E1AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A04EE32449100D0003E1AE /* SceneDelegate.swift */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C005A774244A60C7008A5ECF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C005A776244A61EA008A5ECF /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
+		C00BD722244A46FF0063A94C /* TerritoryInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TerritoryInfoView.xib; sourceTree = "<group>"; };
+		C00BD724244A47570063A94C /* TerritoryInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerritoryInfoViewController.swift; sourceTree = "<group>"; };
 		C01692F42449182200E4F6F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0A04EDE2449100D0003E1AE /* MyWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A04EE12449100D0003E1AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				C0A8BC4924493AD300F87C1B /* WorldView.swift */,
+				C00BD722244A46FF0063A94C /* TerritoryInfoView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -95,6 +104,7 @@
 		C0A8BC45244939B300F87C1B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C005A776244A61EA008A5ECF /* World.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -103,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				C0A8BC47244939FB00F87C1B /* WorldViewController.swift */,
+				C00BD724244A47570063A94C /* TerritoryInfoViewController.swift */,
+				C005A774244A60C7008A5ECF /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -172,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0A04EF12449100F0003E1AE /* LaunchScreen.storyboard in Resources */,
+				C00BD723244A46FF0063A94C /* TerritoryInfoView.xib in Resources */,
 				C01692F52449182200E4F6F7 /* Assets.xcassets in Resources */,
 				C0A04EE92449100D0003E1AE /* Main.storyboard in Resources */,
 			);
@@ -187,7 +200,10 @@
 				C0A04EE22449100D0003E1AE /* AppDelegate.swift in Sources */,
 				C0A04EEC2449100D0003E1AE /* MyWorld.xcdatamodeld in Sources */,
 				C0A8BC4A24493AD300F87C1B /* WorldView.swift in Sources */,
+				C00BD725244A47570063A94C /* TerritoryInfoViewController.swift in Sources */,
+				C005A775244A60C7008A5ECF /* TabBarController.swift in Sources */,
 				C0A04EE42449100D0003E1AE /* SceneDelegate.swift in Sources */,
+				C005A777244A61EA008A5ECF /* World.swift in Sources */,
 				C0A8BC48244939FB00F87C1B /* WorldViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
