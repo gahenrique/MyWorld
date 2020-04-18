@@ -16,7 +16,7 @@ class ContractViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
         navigationItem.leftBarButtonItem?.isEnabled = false
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(close))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Fechar", style: .done, target: self, action: #selector(close))
 
         let pdfView = PDFView(frame: self.view.bounds)
         self.view.addSubview(pdfView)

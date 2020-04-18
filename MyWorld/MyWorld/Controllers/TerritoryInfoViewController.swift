@@ -28,8 +28,8 @@ class TerritoryInfoViewController: UIViewController {
         
         title = "Info"
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(close))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Give", style: .plain, target: self, action: #selector(give))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Fechar", style: .done, target: self, action: #selector(close))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Doar", style: .plain, target: self, action: #selector(give))
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -21,9 +21,9 @@ class GiveTerritoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Give"
+        title = "Cadastro"
                 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Confirm", style: .done, target: self, action: #selector(confirm))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Confirmar", style: .done, target: self, action: #selector(confirm))
         
         navigationItem.rightBarButtonItem?.isEnabled = false
     }
