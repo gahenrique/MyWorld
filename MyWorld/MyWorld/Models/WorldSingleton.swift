@@ -1,5 +1,5 @@
 //
-//  World.swift
+//  WorldSingleton.swift
 //  MyWorld
 //
 //  Created by gabriel on 17/04/20.
@@ -9,17 +9,31 @@
 import FortunesAlgorithm
 import UIKit
 
-public class World {
-    var type: WorldType
-    var territories: [Territory] = []
-    var worldRect: CGRect
+public class WorldSingleton {
     
-    init(worldRect: CGRect, type: WorldType) {
+    private static var _shared = WorldSingleton(worldRect: CGRect(x: 0, y: 0, width: 4096, height: 2048), type: .venus)
+    var worldRect: CGRect
+    private(set) var type: WorldType
+    var territories: [Territory] = []
+    
+    private init(worldRect: CGRect, type: WorldType) {
         self.type = type
         self.worldRect = worldRect
         
         createTerritories()
     }
+    
+    class func shared() -> WorldSingleton {
+        return _shared
+    }
+    
+    func createNewWorld(withType type: WorldType) {
+        self.type = type
+        self.territories.removeAll()
+        
+        createTerritories()
+    }
+    
     
     private func createTerritories() {
         let fortuneSweep = FortuneSweep()

@@ -34,9 +34,8 @@ class ConfigViewController: UIViewController {
     }
     
     @IBAction func createNewWorld(_ sender: Any) {
-        guard let controller = tabBarController as? TabBarController else { return }
-        
-        controller.createNewWorld(withType: worldTypeSelected)
+        WorldSingleton.shared().createNewWorld(withType: worldTypeSelected)
+        tabBarController?.selectedIndex = 0
     }
     
 }
