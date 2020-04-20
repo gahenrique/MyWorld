@@ -44,8 +44,7 @@ class TerritoryInfoViewController: UIViewController {
         codeLbl.text = "Código: \(territory.code)"
         totalAreaLbl.text = "Área total: " + String(format: "%.2f", territory.area) + "km²"
         if territory.hasOwner {
-            navigationItem.rightBarButtonItem?.isEnabled = false
-//            ownerLbl.font = UIFont.systemFont(ofSize: 17)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Tomar", style: .done, target: self, action: #selector(take))
             ownerLbl.textColor = .label
             ownerLbl.text = "Regente: " + territory.regent!
         }
@@ -63,7 +62,14 @@ class TerritoryInfoViewController: UIViewController {
         guard let vc = Bundle.main.loadNibNamed("GiveTerritoryView", owner: nil, options: nil)?.first as? GiveTerritoryViewController else {return}
         vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
-        
+    }
+    
+    @objc func take() {
+        territory.hasOwner = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Doar", style: .plain, target: self, action: #selector(give))
+        ownerLbl.text = "Nenhum regente"
+        ownerLbl.textColor = UIColor.systemRed
+        WorldSingleton.shared().saveWorld()
     }
     
     private func drawTerritory(vertices: [CGPoint], size: CGSize) {

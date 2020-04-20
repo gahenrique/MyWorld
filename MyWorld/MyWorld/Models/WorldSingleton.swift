@@ -36,6 +36,7 @@ class WorldSingleton {
     func saveWorld() {
         let defaults = UserDefaults.standard
         defaults.set(try? PropertyListEncoder().encode(world), forKey: "world")
+        delegate?.worldChanged()
     }
     
     private func getSavedWorld() -> World? {
@@ -54,6 +55,5 @@ class WorldSingleton {
     func createNewWorld(withType type: WorldType) {
         self.world = World(type: type)
         saveWorld()
-        delegate?.worldChanged()
     }
 }

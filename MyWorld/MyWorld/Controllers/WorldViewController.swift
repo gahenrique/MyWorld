@@ -147,7 +147,7 @@ extension WorldViewController: TerritoryInfoViewControllerDelegate {
         if !selectedTerritory.hasOwner {
             selectedTerritory.regent = regent
             
-            selectedTerritory.hasOwner.toggle()
+            selectedTerritory.hasOwner = true
             selectedTerritoryLayer.fillColor = CGColor(srgbRed: 255, green: 0, blue: 0, alpha: 0.5)
             
             availableAreaLbl.text = "Área disponível: " + String(format: "%.2f", availableArea)
@@ -162,5 +162,6 @@ extension WorldViewController: WorldSingletonDelegate {
         guard let subLayersCount = worldView.layer.sublayers?.count else { return }
         worldView.layer.sublayers?.removeLast(subLayersCount - 1)
         initLayers()
+        initWorldView()
     }
 }

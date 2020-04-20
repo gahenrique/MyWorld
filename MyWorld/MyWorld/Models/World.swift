@@ -98,10 +98,10 @@ public class World: NSObject, Codable {
         return available > 0 ? available : 0
     }
     
-    func getTerritoriesWithRegent() -> [Territory] {
-        var territoriesWithRegent: [Territory] = []
-        for t in territories {
-            if t.hasOwner { territoriesWithRegent.append(t) }
+    func getTerritoriesWithRegent() -> [Int] {
+        var territoriesWithRegent: [Int] = []
+        for i in 0..<territories.count {
+            if territories[i].hasOwner { territoriesWithRegent.append(i) }
         }
         return territoriesWithRegent
     }
