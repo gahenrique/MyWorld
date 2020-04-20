@@ -144,8 +144,6 @@ extension WorldViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        print(scrollView.minimumZoomScale)
-        print("entroi")
         let offsetX = max((scrollView.bounds.width - scrollView.contentSize.width) / 2, 0)
         let offsetY = max((scrollView.bounds.height - scrollView.contentSize.height) / 2, 0)
         scrollView.contentInset = UIEdgeInsets(top: offsetY, left: offsetX, bottom: offsetY, right: offsetX)

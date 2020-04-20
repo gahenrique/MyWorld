@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -15,22 +15,22 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aiz-NO-sE0">
-                        <rect key="frame" x="50" y="328" width="314" height="81.5"/>
+                        <rect key="frame" x="50" y="303" width="314" height="81"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nenhum regente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxn-Iz-3gy">
-                                <rect key="frame" x="0.0" y="0.0" width="314" height="20.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="314" height="20.333333333333332"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Código:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4KE-fQ-qSv">
-                                <rect key="frame" x="0.0" y="30.5" width="314" height="20.5"/>
+                                <rect key="frame" x="0.0" y="30.333333333333314" width="314" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Área total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3p-eO-q0X">
-                                <rect key="frame" x="0.0" y="61" width="314" height="20.5"/>
+                                <rect key="frame" x="0.0" y="60.666666666666693" width="314" height="20.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="234"/>
                         <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="Z3w-Z9-fkQ" secondAttribute="height" multiplier="23:13" id="HeF-1W-CWb"/>
+                            <constraint firstAttribute="height" constant="234" id="UaC-Qa-WXc"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -49,10 +49,10 @@
                 <constraints>
                     <constraint firstItem="ktY-C9-Taa" firstAttribute="trailing" secondItem="aiz-NO-sE0" secondAttribute="trailing" constant="50" id="19T-Gf-XJ8"/>
                     <constraint firstItem="aiz-NO-sE0" firstAttribute="leading" secondItem="ktY-C9-Taa" secondAttribute="leading" constant="50" id="1U0-wu-Z7N"/>
-                    <constraint firstItem="Z3w-Z9-fkQ" firstAttribute="leading" secondItem="ktY-C9-Taa" secondAttribute="leading" id="8Al-rK-CMz"/>
-                    <constraint firstItem="Z3w-Z9-fkQ" firstAttribute="trailing" secondItem="ktY-C9-Taa" secondAttribute="trailing" id="CTI-OV-l9l"/>
-                    <constraint firstItem="aiz-NO-sE0" firstAttribute="top" secondItem="Z3w-Z9-fkQ" secondAttribute="bottom" constant="50" id="Ghn-zw-gp2"/>
-                    <constraint firstItem="Z3w-Z9-fkQ" firstAttribute="top" secondItem="ktY-C9-Taa" secondAttribute="top" id="q8V-gr-8l2"/>
+                    <constraint firstItem="Z3w-Z9-fkQ" firstAttribute="top" secondItem="ktY-C9-Taa" secondAttribute="top" id="8UO-lf-TWi"/>
+                    <constraint firstItem="aiz-NO-sE0" firstAttribute="top" secondItem="Z3w-Z9-fkQ" secondAttribute="bottom" constant="25" id="EgI-0w-j5m"/>
+                    <constraint firstItem="Z3w-Z9-fkQ" firstAttribute="trailing" secondItem="ktY-C9-Taa" secondAttribute="trailing" id="Ma6-72-GOB"/>
+                    <constraint firstItem="Z3w-Z9-fkQ" firstAttribute="leading" secondItem="ktY-C9-Taa" secondAttribute="leading" id="QfV-9s-KUE"/>
                 </constraints>
                 <viewLayoutGuide key="safeArea" id="ktY-C9-Taa"/>
             </view>
