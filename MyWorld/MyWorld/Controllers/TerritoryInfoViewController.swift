@@ -112,6 +112,12 @@ class TerritoryInfoViewController: UIViewController {
         }
         return origin
     }
+    
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        territoryView.layer.sublayers?.removeAll()
+        guard let territorySize = territoryLayer.path?.boundingBox.size else { return }
+        drawTerritory(vertices: territory.vertices, size: territorySize)
+    }
 }
 
 extension TerritoryInfoViewController: GiveTerritoryViewControllerDelegate {
