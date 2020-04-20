@@ -17,12 +17,11 @@
 		C0A04EE22449100D0003E1AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A04EE12449100D0003E1AE /* AppDelegate.swift */; };
 		C0A04EE42449100D0003E1AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A04EE32449100D0003E1AE /* SceneDelegate.swift */; };
 		C0A04EE92449100D0003E1AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0A04EE72449100D0003E1AE /* Main.storyboard */; };
+		C0A04EEC2449100D0003E1AE /* MyWorld.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0A04EEA2449100D0003E1AE /* MyWorld.xcdatamodeld */; };
 		C0A04EF12449100F0003E1AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0A04EEF2449100F0003E1AE /* LaunchScreen.storyboard */; };
 		C0A8BC48244939FB00F87C1B /* WorldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A8BC47244939FB00F87C1B /* WorldViewController.swift */; };
 		C0A8BC4A24493AD300F87C1B /* WorldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A8BC4924493AD300F87C1B /* WorldView.swift */; };
 		C0A8BC5224493F7700F87C1B /* FortunesAlgorithm in Frameworks */ = {isa = PBXBuildFile; productRef = C0A8BC5124493F7700F87C1B /* FortunesAlgorithm */; };
-		C0AE4D17244D548300AD8A36 /* TerritoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AE4D16244D548300AD8A36 /* TerritoriesListViewController.swift */; };
-		C0AE4D19244D590800AD8A36 /* TerritoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AE4D18244D590800AD8A36 /* TerritoryCell.swift */; };
 		C0CA40AE244AFD9100A448C1 /* ContractView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CA40AD244AFD9100A448C1 /* ContractView.xib */; };
 		C0CA40B0244AFDC500A448C1 /* ContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CA40AF244AFDC500A448C1 /* ContractViewController.swift */; };
 		C0CA40B2244AFF2200A448C1 /* DocumentViewPDF.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CA40B1244AFF2200A448C1 /* DocumentViewPDF.xib */; };
@@ -41,12 +40,11 @@
 		C0A04EE12449100D0003E1AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0A04EE32449100D0003E1AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C0A04EE82449100D0003E1AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C0A04EEB2449100D0003E1AE /* MyWorld.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyWorld.xcdatamodel; sourceTree = "<group>"; };
 		C0A04EF02449100F0003E1AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0A04EF22449100F0003E1AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0A8BC47244939FB00F87C1B /* WorldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldViewController.swift; sourceTree = "<group>"; };
 		C0A8BC4924493AD300F87C1B /* WorldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldView.swift; sourceTree = "<group>"; };
-		C0AE4D16244D548300AD8A36 /* TerritoriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerritoriesListViewController.swift; sourceTree = "<group>"; };
-		C0AE4D18244D590800AD8A36 /* TerritoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerritoryCell.swift; sourceTree = "<group>"; };
 		C0CA40AD244AFD9100A448C1 /* ContractView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContractView.xib; sourceTree = "<group>"; };
 		C0CA40AF244AFDC500A448C1 /* ContractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
 		C0CA40B1244AFF2200A448C1 /* DocumentViewPDF.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentViewPDF.xib; sourceTree = "<group>"; };
@@ -100,6 +98,7 @@
 				C0A04EE32449100D0003E1AE /* SceneDelegate.swift */,
 				C0A04EEF2449100F0003E1AE /* LaunchScreen.storyboard */,
 				C0A04EF22449100F0003E1AE /* Info.plist */,
+				C0A04EEA2449100D0003E1AE /* MyWorld.xcdatamodeld */,
 				C01692F42449182200E4F6F7 /* Assets.xcassets */,
 			);
 			path = SupportFiles;
@@ -108,7 +107,6 @@
 		C0A8BC44244939AA00F87C1B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C0AE4D18244D590800AD8A36 /* TerritoryCell.swift */,
 				C0A8BC4924493AD300F87C1B /* WorldView.swift */,
 				C00BD722244A46FF0063A94C /* TerritoryInfoView.xib */,
 				C005A778244AEEAB008A5ECF /* GiveTerritoryView.xib */,
@@ -135,7 +133,6 @@
 				C005A77A244AF038008A5ECF /* GiveTerritoryViewController.swift */,
 				C0CA40AF244AFDC500A448C1 /* ContractViewController.swift */,
 				C01A701C244B356300787E67 /* ConfigViewController.swift */,
-				C0AE4D16244D548300AD8A36 /* TerritoriesListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -222,11 +219,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0A04EE22449100D0003E1AE /* AppDelegate.swift in Sources */,
-				C0AE4D17244D548300AD8A36 /* TerritoriesListViewController.swift in Sources */,
+				C0A04EEC2449100D0003E1AE /* MyWorld.xcdatamodeld in Sources */,
 				C0A8BC4A24493AD300F87C1B /* WorldView.swift in Sources */,
 				C01A701D244B356300787E67 /* ConfigViewController.swift in Sources */,
 				C00BD725244A47570063A94C /* TerritoryInfoViewController.swift in Sources */,
-				C0AE4D19244D590800AD8A36 /* TerritoryCell.swift in Sources */,
 				C0A04EE42449100D0003E1AE /* SceneDelegate.swift in Sources */,
 				C005A777244A61EA008A5ECF /* WorldSingleton.swift in Sources */,
 				C0F42588244D04C10063DD73 /* World.swift in Sources */,
@@ -449,6 +445,19 @@
 			productName = FortunesAlgorithm;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		C0A04EEA2449100D0003E1AE /* MyWorld.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C0A04EEB2449100D0003E1AE /* MyWorld.xcdatamodel */,
+			);
+			currentVersion = C0A04EEB2449100D0003E1AE /* MyWorld.xcdatamodel */;
+			path = MyWorld.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C0A04ED62449100D0003E1AE /* Project object */;
 }
