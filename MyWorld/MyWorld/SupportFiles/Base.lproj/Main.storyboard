@@ -15,64 +15,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oz0-Ix-D9N" userLabel="Ceres Button">
-                                <rect key="frame" x="214" y="314" width="165" height="85"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qyn-eO-VaT">
+                                <rect key="frame" x="32" y="373" width="350" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione o mundo que deseja:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxz-sT-kCx">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pv3-Vg-kOe">
+                                        <rect key="frame" x="0.0" y="20.5" width="350" height="85"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfb-3X-SYl" userLabel="Venus Button">
+                                                <rect key="frame" x="0.0" y="0.0" width="165" height="85"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="165" id="Wnx-Nf-o6h"/>
+                                                    <constraint firstAttribute="height" constant="85" id="cN3-Wu-wiA"/>
+                                                </constraints>
+                                                <state key="normal" image="venusButton"/>
+                                                <connections>
+                                                    <action selector="venusSelected:" destination="8sD-g3-dVg" eventType="touchUpInside" id="6up-vi-a4r"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oz0-Ix-D9N" userLabel="Ceres Button">
+                                                <rect key="frame" x="185" y="0.0" width="165" height="85"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="165" id="BWi-nA-xAC"/>
+                                                    <constraint firstAttribute="height" constant="85" id="Cbe-7Q-B8v"/>
+                                                </constraints>
+                                                <state key="normal" image="ceresButton"/>
+                                                <connections>
+                                                    <action selector="ceresSelected:" destination="8sD-g3-dVg" eventType="touchUpInside" id="ilf-52-yEN"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTO-8g-QOG">
+                                        <rect key="frame" x="0.0" y="105.5" width="350" height="30"/>
+                                        <state key="normal" title="Criar novo mundo"/>
+                                        <connections>
+                                            <action selector="createNewWorld:" destination="8sD-g3-dVg" eventType="touchUpInside" id="g4A-YT-7tK"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todos os territórios atuais serão perdidos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjd-7L-Wyb">
+                                        <rect key="frame" x="0.0" y="135.5" width="350" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="165" id="Ow3-uP-Pty"/>
-                                    <constraint firstAttribute="height" constant="85" id="gwL-kT-k77"/>
+                                    <constraint firstAttribute="width" secondItem="Qyn-eO-VaT" secondAttribute="height" multiplier="7:3" id="BRw-aH-hgw"/>
                                 </constraints>
-                                <state key="normal" image="ceresButton"/>
-                                <connections>
-                                    <action selector="ceresSelected:" destination="8sD-g3-dVg" eventType="touchUpInside" id="ilf-52-yEN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfb-3X-SYl" userLabel="Venus Button">
-                                <rect key="frame" x="35" y="314" width="165" height="85"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="165" id="BV4-su-J0c"/>
-                                    <constraint firstAttribute="height" constant="85" id="Tui-ss-BHn"/>
-                                </constraints>
-                                <state key="normal" image="venusButton"/>
-                                <connections>
-                                    <action selector="venusSelected:" destination="8sD-g3-dVg" eventType="touchUpInside" id="6up-vi-a4r"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione o mundo que deseja:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxz-sT-kCx">
-                                <rect key="frame" x="35" y="285" width="239" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTO-8g-QOG">
-                                <rect key="frame" x="146" y="514" width="122" height="30"/>
-                                <state key="normal" title="Criar novo mundo"/>
-                                <connections>
-                                    <action selector="createNewWorld:" destination="8sD-g3-dVg" eventType="touchUpInside" id="g4A-YT-7tK"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todos os territórios atuais serão perdidos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjd-7L-Wyb">
-                                <rect key="frame" x="89" y="554" width="236" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Xfb-3X-SYl" firstAttribute="leading" secondItem="cAl-WZ-c5f" secondAttribute="leading" constant="35" id="0fN-fU-mOu"/>
-                            <constraint firstItem="cAl-WZ-c5f" firstAttribute="trailing" secondItem="yTO-8g-QOG" secondAttribute="trailing" constant="146" id="0jJ-WM-4Vu"/>
-                            <constraint firstItem="cAl-WZ-c5f" firstAttribute="trailing" secondItem="jxz-sT-kCx" secondAttribute="trailing" constant="140" id="2Qb-Wy-nyI"/>
-                            <constraint firstItem="oz0-Ix-D9N" firstAttribute="top" secondItem="jxz-sT-kCx" secondAttribute="bottom" constant="8" id="ETF-XO-RoM"/>
-                            <constraint firstItem="Xfb-3X-SYl" firstAttribute="top" secondItem="cAl-WZ-c5f" secondAttribute="top" constant="270" id="IS7-oh-imN"/>
-                            <constraint firstItem="jxz-sT-kCx" firstAttribute="leading" secondItem="cAl-WZ-c5f" secondAttribute="leading" constant="35" id="PL5-Sb-wX9"/>
-                            <constraint firstItem="sjd-7L-Wyb" firstAttribute="leading" secondItem="cAl-WZ-c5f" secondAttribute="leading" constant="89" id="UNi-k1-WLq"/>
-                            <constraint firstItem="oz0-Ix-D9N" firstAttribute="top" secondItem="cAl-WZ-c5f" secondAttribute="top" constant="270" id="VIQ-n1-VSv"/>
-                            <constraint firstItem="cAl-WZ-c5f" firstAttribute="trailing" secondItem="oz0-Ix-D9N" secondAttribute="trailing" constant="35" id="Vwh-bI-aVZ"/>
-                            <constraint firstItem="cAl-WZ-c5f" firstAttribute="bottom" secondItem="yTO-8g-QOG" secondAttribute="bottom" constant="269" id="aan-uz-Jra"/>
-                            <constraint firstItem="sjd-7L-Wyb" firstAttribute="top" secondItem="yTO-8g-QOG" secondAttribute="bottom" constant="10" id="gLg-YN-d6b"/>
-                            <constraint firstItem="yTO-8g-QOG" firstAttribute="leading" secondItem="cAl-WZ-c5f" secondAttribute="leading" constant="146" id="n4D-CB-Zio"/>
-                            <constraint firstItem="cAl-WZ-c5f" firstAttribute="trailing" secondItem="sjd-7L-Wyb" secondAttribute="trailing" constant="89" id="oz3-Ot-YmM"/>
-                            <constraint firstItem="yTO-8g-QOG" firstAttribute="top" secondItem="oz0-Ix-D9N" secondAttribute="bottom" constant="115" id="wbn-3e-XMY"/>
+                            <constraint firstItem="Qyn-eO-VaT" firstAttribute="centerY" secondItem="lXr-PI-Kkn" secondAttribute="centerY" id="WKb-4A-TCh"/>
+                            <constraint firstItem="Qyn-eO-VaT" firstAttribute="centerX" secondItem="lXr-PI-Kkn" secondAttribute="centerX" id="nlE-4J-g6c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cAl-WZ-c5f"/>
                     </view>
@@ -85,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iob-mK-LhI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="542.02898550724638" y="-340.17857142857139"/>
+            <point key="canvasLocation" x="540.57971014492762" y="-340.17857142857139"/>
         </scene>
         <!--Territories List View Controller-->
         <scene sceneID="Wnb-2c-Dya">
@@ -190,35 +191,61 @@
                                     <constraint firstAttribute="bottom" secondItem="E9m-h1-rfV" secondAttribute="bottom" constant="-1279" id="lrY-yB-m7w"/>
                                 </constraints>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Area" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kMm-Oy-H8G">
-                                <rect key="frame" x="25" y="94" width="364" height="29"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEq-Wu-FtI" userLabel="Centralize World">
-                                <rect key="frame" x="355.5" y="173" width="33.5" height="33.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="CentralizeIcon">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                </state>
-                                <state key="selected" image="map.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="centralizeWorld:" destination="a1b-uR-FqR" eventType="touchUpInside" id="a4i-5Y-gjg"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9XK-bf-tvT">
+                                <rect key="frame" x="25" y="723" width="364" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Area" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kMm-Oy-H8G">
+                                        <rect key="frame" x="25" y="5.5" width="314" height="29"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="kMm-Oy-H8G" secondAttribute="trailing" constant="25" id="5br-Zx-D5P"/>
+                                    <constraint firstItem="kMm-Oy-H8G" firstAttribute="centerY" secondItem="9XK-bf-tvT" secondAttribute="centerY" id="qhl-xE-DEy"/>
+                                    <constraint firstItem="kMm-Oy-H8G" firstAttribute="leading" secondItem="9XK-bf-tvT" secondAttribute="leading" constant="25" id="r2m-rv-REF"/>
+                                    <constraint firstAttribute="height" constant="40" id="rBQ-vW-bbU"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k63-hY-Qdv">
+                                <rect key="frame" x="354" y="174" width="50" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEq-Wu-FtI" userLabel="Centralize World">
+                                        <rect key="frame" x="8.5" y="8.5" width="33.5" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="CentralizeIcon">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                        </state>
+                                        <state key="selected" image="map.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="centralizeWorld:" destination="a1b-uR-FqR" eventType="touchUpInside" id="a4i-5Y-gjg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Iex-C1-Zdy"/>
+                                    <constraint firstAttribute="width" constant="50" id="KOT-u9-qaC"/>
+                                    <constraint firstAttribute="bottom" secondItem="bEq-Wu-FtI" secondAttribute="bottom" constant="8" id="Kkr-9P-CRi"/>
+                                    <constraint firstItem="bEq-Wu-FtI" firstAttribute="top" secondItem="k63-hY-Qdv" secondAttribute="top" constant="8.5" id="TI1-qG-3WR"/>
+                                    <constraint firstItem="bEq-Wu-FtI" firstAttribute="leading" secondItem="k63-hY-Qdv" secondAttribute="leading" constant="8.5" id="huL-A2-VIS"/>
+                                    <constraint firstAttribute="trailing" secondItem="bEq-Wu-FtI" secondAttribute="trailing" constant="8" id="rFg-QY-Xpb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Kfh-SY-Dwv" firstAttribute="trailing" secondItem="kMm-Oy-H8G" secondAttribute="trailing" constant="25" id="3Ri-Mw-v8l"/>
-                            <constraint firstItem="Kfh-SY-Dwv" firstAttribute="trailing" secondItem="bEq-Wu-FtI" secondAttribute="trailing" constant="25" id="AMq-bn-ZAR"/>
+                            <constraint firstItem="Kfh-SY-Dwv" firstAttribute="trailing" secondItem="9XK-bf-tvT" secondAttribute="trailing" constant="25" id="92y-X3-8K4"/>
+                            <constraint firstItem="Kfh-SY-Dwv" firstAttribute="bottom" secondItem="9XK-bf-tvT" secondAttribute="bottom" constant="50" id="TmM-JP-Yj5"/>
+                            <constraint firstItem="k63-hY-Qdv" firstAttribute="top" secondItem="Kfh-SY-Dwv" secondAttribute="top" constant="130" id="WTd-Dc-Moi"/>
                             <constraint firstItem="Kfh-SY-Dwv" firstAttribute="trailing" secondItem="5TA-HN-O9U" secondAttribute="trailing" id="hHD-yQ-dcS"/>
                             <constraint firstItem="5TA-HN-O9U" firstAttribute="leading" secondItem="Kfh-SY-Dwv" secondAttribute="leading" id="jY5-LF-vZA"/>
-                            <constraint firstItem="kMm-Oy-H8G" firstAttribute="leading" secondItem="Kfh-SY-Dwv" secondAttribute="leading" constant="25" id="jjd-x4-sFP"/>
-                            <constraint firstItem="kMm-Oy-H8G" firstAttribute="top" secondItem="Kfh-SY-Dwv" secondAttribute="top" constant="50" id="kAY-DA-583"/>
                             <constraint firstItem="5TA-HN-O9U" firstAttribute="top" secondItem="Kfh-SY-Dwv" secondAttribute="top" id="knV-MH-DXs"/>
-                            <constraint firstItem="bEq-Wu-FtI" firstAttribute="top" secondItem="kMm-Oy-H8G" secondAttribute="bottom" constant="50" id="wyi-ob-23l"/>
+                            <constraint firstItem="Kfh-SY-Dwv" firstAttribute="trailing" secondItem="k63-hY-Qdv" secondAttribute="trailing" constant="10" id="xwk-rn-mY7"/>
+                            <constraint firstItem="9XK-bf-tvT" firstAttribute="leading" secondItem="Kfh-SY-Dwv" secondAttribute="leading" constant="25" id="xxG-Iq-naG"/>
                             <constraint firstItem="Kfh-SY-Dwv" firstAttribute="bottom" secondItem="5TA-HN-O9U" secondAttribute="bottom" id="zaG-58-Swu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kfh-SY-Dwv"/>
@@ -226,6 +253,8 @@
                     <tabBarItem key="tabBarItem" title="" image="PlanetIcon" selectedImage="PlanetIconFill" id="wnP-ng-IH6"/>
                     <connections>
                         <outlet property="availableAreaLbl" destination="kMm-Oy-H8G" id="OVI-F6-YuE"/>
+                        <outlet property="availableAreaView" destination="9XK-bf-tvT" id="2tI-fu-4xY"/>
+                        <outlet property="centralizeBackgroundView" destination="k63-hY-Qdv" id="itN-Qz-wmy"/>
                         <outlet property="scrollView" destination="5TA-HN-O9U" id="8GS-mM-eFZ"/>
                         <outlet property="worldImage" destination="EXE-ta-DBD" id="4ne-7c-1sX"/>
                         <outlet property="worldView" destination="E9m-h1-rfV" id="k3b-fp-gPJ"/>

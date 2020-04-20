@@ -40,17 +40,19 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3w-Z9-fkQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="234"/>
                         <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Z3w-Z9-fkQ" secondAttribute="height" multiplier="23:13" id="HeF-1W-CWb"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 <constraints>
                     <constraint firstItem="ktY-C9-Taa" firstAttribute="trailing" secondItem="aiz-NO-sE0" secondAttribute="trailing" constant="50" id="19T-Gf-XJ8"/>
                     <constraint firstItem="aiz-NO-sE0" firstAttribute="leading" secondItem="ktY-C9-Taa" secondAttribute="leading" constant="50" id="1U0-wu-Z7N"/>
-                    <constraint firstItem="Z3w-Z9-fkQ" firstAttribute="trailing" secondItem="ktY-C9-Taa" secondAttribute="trailing" id="N9V-5P-P1V"/>
-                    <constraint firstItem="aiz-NO-sE0" firstAttribute="top" secondItem="Z3w-Z9-fkQ" secondAttribute="bottom" constant="50" id="X9U-pX-Xaw"/>
-                    <constraint firstItem="Z3w-Z9-fkQ" firstAttribute="top" secondItem="ktY-C9-Taa" secondAttribute="top" id="iUd-zL-dgT"/>
-                    <constraint firstItem="ktY-C9-Taa" firstAttribute="bottom" secondItem="Z3w-Z9-fkQ" secondAttribute="bottom" constant="584" id="oox-eg-82U"/>
-                    <constraint firstItem="Z3w-Z9-fkQ" firstAttribute="leading" secondItem="ktY-C9-Taa" secondAttribute="leading" id="sZl-Ow-v0D"/>
+                    <constraint firstItem="Z3w-Z9-fkQ" firstAttribute="leading" secondItem="ktY-C9-Taa" secondAttribute="leading" id="8Al-rK-CMz"/>
+                    <constraint firstItem="Z3w-Z9-fkQ" firstAttribute="trailing" secondItem="ktY-C9-Taa" secondAttribute="trailing" id="CTI-OV-l9l"/>
+                    <constraint firstItem="aiz-NO-sE0" firstAttribute="top" secondItem="Z3w-Z9-fkQ" secondAttribute="bottom" constant="50" id="Ghn-zw-gp2"/>
+                    <constraint firstItem="Z3w-Z9-fkQ" firstAttribute="top" secondItem="ktY-C9-Taa" secondAttribute="top" id="q8V-gr-8l2"/>
                 </constraints>
                 <viewLayoutGuide key="safeArea" id="ktY-C9-Taa"/>
             </view>

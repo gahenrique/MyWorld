@@ -12,8 +12,10 @@ import FortunesAlgorithm
 class WorldViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var worldView: WorldView!
+    @IBOutlet weak var availableAreaView: UIView!
     @IBOutlet weak var availableAreaLbl: UILabel!
     @IBOutlet weak var worldImage: UIImageView!
+    @IBOutlet weak var centralizeBackgroundView: UIView!
     
     var world: World {
         get {
@@ -41,16 +43,22 @@ class WorldViewController: UIViewController {
         singleTap.numberOfTapsRequired = 1
         scrollView.addGestureRecognizer(singleTap)
         scrollView.delegate = self
-        let minZoom = scrollView.bounds.width / worldView.bounds.width
+        let ratioWidth = scrollView.bounds.width / worldView.bounds.width
+        let ratioHeight = scrollView.bounds.height / worldView.bounds.height
+        let minZoom = min(ratioWidth, ratioHeight)
         scrollView.minimumZoomScale = CGFloat(minZoom)
         scrollView.maximumZoomScale = CGFloat(4)
-        scrollView.setZoomScale(scrollView.minimumZoomScale, animated: false)
+        
+        
+        availableAreaView.layer.cornerRadius = 10
+        centralizeBackgroundView.layer.cornerRadius = 10
         
         initLayers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         initWorldView()
+        scrollView.setZoomScale(scrollView.minimumZoomScale, animated: false)
     }
     
     
@@ -119,6 +127,15 @@ class WorldViewController: UIViewController {
         }
     }
     
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        let ratioWidth = scrollView.bounds.width / worldView.bounds.width
+        let ratioHeight = scrollView.bounds.height / worldView.bounds.height
+        let minZoom = min(ratioWidth, ratioHeight)
+        scrollView.minimumZoomScale = CGFloat(minZoom)
+        scrollView.maximumZoomScale = CGFloat(4)
+        scrollView.setZoomScale(scrollView.minimumZoomScale, animated: false)
+    }
+    
 }
 
 extension WorldViewController: UIScrollViewDelegate {
@@ -127,8 +144,10 @@ extension WorldViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        let offsetX = max((scrollView.bounds.width - scrollView.contentSize.width) * 0.5, 0)
-        let offsetY = max((scrollView.bounds.height - scrollView.contentSize.height) * 0.5, 0)
+        print(scrollView.minimumZoomScale)
+        print("entroi")
+        let offsetX = max((scrollView.bounds.width - scrollView.contentSize.width) / 2, 0)
+        let offsetY = max((scrollView.bounds.height - scrollView.contentSize.height) / 2, 0)
         scrollView.contentInset = UIEdgeInsets(top: offsetY, left: offsetX, bottom: offsetY, right: offsetX)
     }
 }
@@ -158,6 +177,10 @@ extension WorldViewController: TerritoryInfoViewControllerDelegate {
 }
 
 extension WorldViewController: WorldSingletonDelegate {
+    func worldCreated() {
+        scrollView.setZoomScale(scrollView.minimumZoomScale, animated: false)
+    }
+    
     func worldChanged() {
         guard let subLayersCount = worldView.layer.sublayers?.count else { return }
         worldView.layer.sublayers?.removeLast(subLayersCount - 1)

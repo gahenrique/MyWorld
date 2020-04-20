@@ -12,6 +12,7 @@ import CoreData
 
 protocol WorldSingletonDelegate {
     func worldChanged()
+    func worldCreated()
 }
 
 class WorldSingleton {
@@ -55,5 +56,6 @@ class WorldSingleton {
     func createNewWorld(withType type: WorldType) {
         self.world = World(type: type)
         saveWorld()
+        delegate?.worldCreated()
     }
 }
