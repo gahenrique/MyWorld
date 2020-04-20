@@ -14,6 +14,8 @@
 		C00BD725244A47570063A94C /* TerritoryInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00BD724244A47570063A94C /* TerritoryInfoViewController.swift */; };
 		C01692F52449182200E4F6F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C01692F42449182200E4F6F7 /* Assets.xcassets */; };
 		C01A701D244B356300787E67 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A701C244B356300787E67 /* ConfigViewController.swift */; };
+		C042FE95244D70C400F222FD /* TerritoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C042FE94244D70C400F222FD /* TerritoriesListViewController.swift */; };
+		C042FE97244D70E900F222FD /* TerritoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C042FE96244D70E900F222FD /* TerritoryCell.swift */; };
 		C0A04EE22449100D0003E1AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A04EE12449100D0003E1AE /* AppDelegate.swift */; };
 		C0A04EE42449100D0003E1AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A04EE32449100D0003E1AE /* SceneDelegate.swift */; };
 		C0A04EE92449100D0003E1AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0A04EE72449100D0003E1AE /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 		C00BD724244A47570063A94C /* TerritoryInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerritoryInfoViewController.swift; sourceTree = "<group>"; };
 		C01692F42449182200E4F6F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C01A701C244B356300787E67 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		C042FE94244D70C400F222FD /* TerritoriesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerritoriesListViewController.swift; sourceTree = "<group>"; };
+		C042FE96244D70E900F222FD /* TerritoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerritoryCell.swift; sourceTree = "<group>"; };
 		C0A04EDE2449100D0003E1AE /* MyWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A04EE12449100D0003E1AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0A04EE32449100D0003E1AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 		C0A8BC44244939AA00F87C1B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C042FE96244D70E900F222FD /* TerritoryCell.swift */,
 				C0A8BC4924493AD300F87C1B /* WorldView.swift */,
 				C00BD722244A46FF0063A94C /* TerritoryInfoView.xib */,
 				C005A778244AEEAB008A5ECF /* GiveTerritoryView.xib */,
@@ -125,6 +130,7 @@
 		C0A8BC46244939B800F87C1B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C042FE94244D70C400F222FD /* TerritoriesListViewController.swift */,
 				C0A8BC47244939FB00F87C1B /* WorldViewController.swift */,
 				C00BD724244A47570063A94C /* TerritoryInfoViewController.swift */,
 				C005A77A244AF038008A5ECF /* GiveTerritoryViewController.swift */,
@@ -222,8 +228,10 @@
 				C0A04EE42449100D0003E1AE /* SceneDelegate.swift in Sources */,
 				C005A777244A61EA008A5ECF /* WorldSingleton.swift in Sources */,
 				C0F42588244D04C10063DD73 /* World.swift in Sources */,
+				C042FE95244D70C400F222FD /* TerritoriesListViewController.swift in Sources */,
 				C0A8BC48244939FB00F87C1B /* WorldViewController.swift in Sources */,
 				C0CA40B0244AFDC500A448C1 /* ContractViewController.swift in Sources */,
+				C042FE97244D70E900F222FD /* TerritoryCell.swift in Sources */,
 				C005A77B244AF038008A5ECF /* GiveTerritoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
