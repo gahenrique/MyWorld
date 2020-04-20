@@ -10,18 +10,18 @@ import UIKit
 import FortunesAlgorithm
 
 class WorldViewController: UIViewController {
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var worldView: WorldView!
     @IBOutlet weak var availableAreaLbl: UILabel!
     @IBOutlet weak var worldImage: UIImageView!
     
-    var world: WorldSingleton {
+    var world: World {
         get {
-            return WorldSingleton.shared()
+            return WorldSingleton.shared().world
         }
     }
-    var territories: [Territory] = []
+    var loadedWorld: UUID?
+    var territoriesLayers: [CAShapeLayer] = []
     var finalDiagram: Diagram!
     var availableArea: CGFloat {
         get {
@@ -29,10 +29,13 @@ class WorldViewController: UIViewController {
         }
     }
     var selectedTerritory: Territory?
+    var selectedTerritoryLayer: CAShapeLayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        WorldSingleton.shared().delegate = self
+        
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         singleTap.cancelsTouchesInView = false
         singleTap.numberOfTapsRequired = 1
@@ -42,6 +45,8 @@ class WorldViewController: UIViewController {
         scrollView.minimumZoomScale = CGFloat(minZoom)
         scrollView.maximumZoomScale = CGFloat(4)
         scrollView.setZoomScale(scrollView.minimumZoomScale, animated: false)
+        
+        initLayers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,9 +57,10 @@ class WorldViewController: UIViewController {
     @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
         let loc = recognizer.location(in: worldView)
         if !worldView.bounds.contains(loc) { return }
-
-        let territory = world.getClosestTerritory(point: loc)
-        selectedTerritory = territory
+        
+        let index = world.getClosestTerritory(point: loc)
+        selectedTerritory = world.territories[index]
+        selectedTerritoryLayer = territoriesLayers[index]
         
         guard let vc = Bundle.main.loadNibNamed("TerritoryInfoView", owner: nil, options: nil)?.first as? TerritoryInfoViewController else {return}
         vc.delegate = self
@@ -76,39 +82,46 @@ class WorldViewController: UIViewController {
         if world.type == .venus { worldImage.image = UIImage(named: "venus2d") }
         else if world.type == .ceres { worldImage.image = UIImage(named: "ceres2d") }
         
-        availableAreaLbl.text = "Área disponível: " + String(format: "%.2f", availableArea)
+        availableAreaLbl.text = "Área disponível: " + String(format: "%.2f", availableArea) + "km²"
         
         drawTerritories()
     }
     
-    func drawTerritories() {
-        if let subLayers = worldView.layer.sublayers {worldView.layer.sublayers?.removeLast(subLayers.count - 1)}
+    private func initLayers() {
+        territoriesLayers.removeAll()
+        
         for territory in world.territories {
-            worldView.layer.addSublayer(territory.layer)
+            let territoryColor = territory.hasOwner ? CGColor(srgbRed: 255, green: 0, blue: 0, alpha: 0.5) : UIColor.clear.cgColor
+            let layer = createTerritoryLayer(vertices: territory.vertices , territoryColor: territoryColor, lineColor: CGColor(srgbRed: 0, green: 0, blue: 255, alpha: 0.8))
+            territoriesLayers.append(layer)
         }
     }
-
+    
+    private func createTerritoryLayer(vertices: [CGPoint] , territoryColor: CGColor, lineColor: CGColor) -> CAShapeLayer{
+        let layer = CAShapeLayer()
+        let path = UIBezierPath()
+        path.move(to: vertices[0])
+        for v in vertices {
+            path.addLine(to: CGPoint(x: v.x, y: v.y))
+        }
+        
+        layer.path = path.cgPath
+        layer.fillColor = territoryColor
+        layer.strokeColor = lineColor
+        layer.lineWidth = 3
+        
+        return layer
+    }
+    
+    func drawTerritories() {
+        for layer in territoriesLayers {
+            worldView.layer.addSublayer(layer)
+        }
+    }
+    
 }
 
-extension WorldViewController: UIScrollViewDelegate, TerritoryInfoViewControllerDelegate {
-    func giveTerritory(regent: String) {
-        guard let selectedTerritory = selectedTerritory else { return }
-        
-        if !selectedTerritory.hasOwner {
-            selectedTerritory.regent = regent
-            
-            selectedTerritory.hasOwner.toggle()
-            selectedTerritory.layer.fillColor = CGColor(srgbRed: 255, green: 0, blue: 0, alpha: 0.5)
-            
-            availableAreaLbl.text = "Área disponível: " + String(format: "%.2f", availableArea)
-        }
-    }
-    
-    func loadTerritoryInfo(completion: (Territory) -> Void) {
-        guard let selectedTerritory = selectedTerritory else {return}
-        completion(selectedTerritory)
-    }
-    
+extension WorldViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return worldView
     }
@@ -117,5 +130,37 @@ extension WorldViewController: UIScrollViewDelegate, TerritoryInfoViewController
         let offsetX = max((scrollView.bounds.width - scrollView.contentSize.width) * 0.5, 0)
         let offsetY = max((scrollView.bounds.height - scrollView.contentSize.height) * 0.5, 0)
         scrollView.contentInset = UIEdgeInsets(top: offsetY, left: offsetX, bottom: offsetY, right: offsetX)
+    }
+}
+
+extension WorldViewController: TerritoryInfoViewControllerDelegate {
+    func loadTerritoryInfo(completion: (Territory, CAShapeLayer) -> Void) {
+        guard let selectedTerritory = selectedTerritory else { return }
+        guard let selectedTerritoryLayer = selectedTerritoryLayer else { return }
+        completion(selectedTerritory, selectedTerritoryLayer)
+    }
+    
+    func giveTerritory(regent: String) {
+        guard let selectedTerritory = selectedTerritory else { return }
+        guard let selectedTerritoryLayer = selectedTerritoryLayer else { return }
+        
+        if !selectedTerritory.hasOwner {
+            selectedTerritory.regent = regent
+            
+            selectedTerritory.hasOwner.toggle()
+            selectedTerritoryLayer.fillColor = CGColor(srgbRed: 255, green: 0, blue: 0, alpha: 0.5)
+            
+            availableAreaLbl.text = "Área disponível: " + String(format: "%.2f", availableArea)
+            
+            WorldSingleton.shared().saveWorld()
+        }
+    }
+}
+
+extension WorldViewController: WorldSingletonDelegate {
+    func worldChanged() {
+        guard let subLayersCount = worldView.layer.sublayers?.count else { return }
+        worldView.layer.sublayers?.removeLast(subLayersCount - 1)
+        initLayers()
     }
 }

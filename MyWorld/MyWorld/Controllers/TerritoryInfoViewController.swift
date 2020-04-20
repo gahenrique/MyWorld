@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TerritoryInfoViewControllerDelegate {
-    func loadTerritoryInfo(completion: (_ territory: Territory) -> Void)
+    func loadTerritoryInfo(completion: (_ territory: Territory, _ territoryLayer: CAShapeLayer) -> Void)
     func giveTerritory(regent: String)
 }
 
@@ -22,6 +22,7 @@ class TerritoryInfoViewController: UIViewController {
     
     var delegate: TerritoryInfoViewControllerDelegate?
     var territory: Territory!
+    var territoryLayer: CAShapeLayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,19 +36,20 @@ class TerritoryInfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         
-        delegate?.loadTerritoryInfo(completion: { (territory) in
+        delegate?.loadTerritoryInfo(completion: { (territory, territoryLayer) in
             self.territory = territory
+            self.territoryLayer = territoryLayer
         })
         
         codeLbl.text = "Código: \(territory.code)"
-        totalAreaLbl.text = "Área total: " + String(format: "%.2f", territory.area)
+        totalAreaLbl.text = "Área total: " + String(format: "%.2f", territory.area) + "km²"
         if territory.hasOwner {
             navigationItem.rightBarButtonItem?.isEnabled = false
 //            ownerLbl.font = UIFont.systemFont(ofSize: 17)
             ownerLbl.textColor = .label
             ownerLbl.text = "Regente: " + territory.regent!
         }
-        guard let territorySize = territory.layer.path?.boundingBox.size else { return }
+        guard let territorySize = territoryLayer.path?.boundingBox.size else { return }
         DispatchQueue.main.async {
             self.drawTerritory(vertices: self.territory.vertices, size: territorySize)
         }
