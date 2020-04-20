@@ -87,21 +87,72 @@
             </objects>
             <point key="canvasLocation" x="542.02898550724638" y="-340.17857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Territories List View Controller-->
         <scene sceneID="Wnb-2c-Dya">
             <objects>
-                <viewController id="wVM-ZR-3x0" sceneMemberID="viewController">
+                <viewController id="wVM-ZR-3x0" customClass="TerritoriesListViewController" customModule="MyWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="INc-Rg-WhB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KnL-8b-mgM">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TerritoryCell" id="zNR-0G-LRd" customClass="TerritoryCell" customModule="MyWorld" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zNR-0G-LRd" id="S3I-Iu-wGA">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Código" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ErT-Pl-xZq">
+                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8r-I5-vXE" userLabel="Regent Label">
+                                                    <rect key="frame" x="20" y="40" width="374" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ErT-Pl-xZq" firstAttribute="leading" secondItem="S3I-Iu-wGA" secondAttribute="leadingMargin" id="Gk5-Pb-jRu"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="w8r-I5-vXE" secondAttribute="trailing" id="PBa-ay-C4R"/>
+                                                <constraint firstItem="w8r-I5-vXE" firstAttribute="top" secondItem="ErT-Pl-xZq" secondAttribute="bottom" constant="8" id="W0E-F0-kBa"/>
+                                                <constraint firstItem="ErT-Pl-xZq" firstAttribute="top" secondItem="S3I-Iu-wGA" secondAttribute="topMargin" id="awd-Km-dfy"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ErT-Pl-xZq" secondAttribute="trailing" id="kpK-S6-87t"/>
+                                                <constraint firstItem="w8r-I5-vXE" firstAttribute="leading" secondItem="S3I-Iu-wGA" secondAttribute="leadingMargin" id="yRf-kF-BCp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="codeLabel" destination="ErT-Pl-xZq" id="BQV-1b-cVw"/>
+                                            <outlet property="regentLabel" destination="w8r-I5-vXE" id="HGt-rt-KVP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QTB-NH-pzK" firstAttribute="bottom" secondItem="KnL-8b-mgM" secondAttribute="bottom" id="66H-GQ-YQH"/>
+                            <constraint firstItem="QTB-NH-pzK" firstAttribute="trailing" secondItem="KnL-8b-mgM" secondAttribute="trailing" id="F86-P6-pJq"/>
+                            <constraint firstItem="KnL-8b-mgM" firstAttribute="leading" secondItem="QTB-NH-pzK" secondAttribute="leading" id="Pdi-6v-uyo"/>
+                            <constraint firstItem="KnL-8b-mgM" firstAttribute="top" secondItem="QTB-NH-pzK" secondAttribute="top" id="xOE-gd-fyP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="QTB-NH-pzK"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="ListIcon" selectedImage="ListIconFill" id="5cm-CV-rTo"/>
+                    <connections>
+                        <outlet property="tableView" destination="KnL-8b-mgM" id="bNM-Vv-XEJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ws8-R9-Pnp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="543" y="-994"/>
+            <point key="canvasLocation" x="540.57971014492762" y="-994.41964285714278"/>
         </scene>
         <!--World View Controller-->
         <scene sceneID="RZK-ER-YZ2">

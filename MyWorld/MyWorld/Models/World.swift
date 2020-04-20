@@ -97,6 +97,14 @@ public class World: NSObject, Codable {
         
         return available > 0 ? available : 0
     }
+    
+    func getTerritoriesWithRegent() -> [Territory] {
+        var territoriesWithRegent: [Territory] = []
+        for t in territories {
+            if t.hasOwner { territoriesWithRegent.append(t) }
+        }
+        return territoriesWithRegent
+    }
 }
 
 class Territory: Codable {

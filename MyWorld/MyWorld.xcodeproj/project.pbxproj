@@ -17,7 +17,6 @@
 		C0A04EE22449100D0003E1AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A04EE12449100D0003E1AE /* AppDelegate.swift */; };
 		C0A04EE42449100D0003E1AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A04EE32449100D0003E1AE /* SceneDelegate.swift */; };
 		C0A04EE92449100D0003E1AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0A04EE72449100D0003E1AE /* Main.storyboard */; };
-		C0A04EEC2449100D0003E1AE /* MyWorld.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0A04EEA2449100D0003E1AE /* MyWorld.xcdatamodeld */; };
 		C0A04EF12449100F0003E1AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0A04EEF2449100F0003E1AE /* LaunchScreen.storyboard */; };
 		C0A8BC48244939FB00F87C1B /* WorldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A8BC47244939FB00F87C1B /* WorldViewController.swift */; };
 		C0A8BC4A24493AD300F87C1B /* WorldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A8BC4924493AD300F87C1B /* WorldView.swift */; };
@@ -40,7 +39,6 @@
 		C0A04EE12449100D0003E1AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0A04EE32449100D0003E1AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C0A04EE82449100D0003E1AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C0A04EEB2449100D0003E1AE /* MyWorld.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyWorld.xcdatamodel; sourceTree = "<group>"; };
 		C0A04EF02449100F0003E1AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0A04EF22449100F0003E1AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0A8BC47244939FB00F87C1B /* WorldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldViewController.swift; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 				C0A04EE32449100D0003E1AE /* SceneDelegate.swift */,
 				C0A04EEF2449100F0003E1AE /* LaunchScreen.storyboard */,
 				C0A04EF22449100F0003E1AE /* Info.plist */,
-				C0A04EEA2449100D0003E1AE /* MyWorld.xcdatamodeld */,
 				C01692F42449182200E4F6F7 /* Assets.xcassets */,
 			);
 			path = SupportFiles;
@@ -219,7 +216,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0A04EE22449100D0003E1AE /* AppDelegate.swift in Sources */,
-				C0A04EEC2449100D0003E1AE /* MyWorld.xcdatamodeld in Sources */,
 				C0A8BC4A24493AD300F87C1B /* WorldView.swift in Sources */,
 				C01A701D244B356300787E67 /* ConfigViewController.swift in Sources */,
 				C00BD725244A47570063A94C /* TerritoryInfoViewController.swift in Sources */,
@@ -445,19 +441,6 @@
 			productName = FortunesAlgorithm;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		C0A04EEA2449100D0003E1AE /* MyWorld.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				C0A04EEB2449100D0003E1AE /* MyWorld.xcdatamodel */,
-			);
-			currentVersion = C0A04EEB2449100D0003E1AE /* MyWorld.xcdatamodel */;
-			path = MyWorld.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = C0A04ED62449100D0003E1AE /* Project object */;
 }
