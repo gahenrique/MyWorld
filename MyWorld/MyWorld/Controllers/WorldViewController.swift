@@ -61,7 +61,6 @@ class WorldViewController: UIViewController {
         scrollView.setZoomScale(scrollView.minimumZoomScale, animated: false)
     }
     
-    
     @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
         let loc = recognizer.location(in: worldView)
         if !worldView.bounds.contains(loc) { return }
@@ -126,16 +125,6 @@ class WorldViewController: UIViewController {
             worldView.layer.addSublayer(layer)
         }
     }
-    
-    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
-        let ratioWidth = scrollView.bounds.width / worldView.bounds.width
-        let ratioHeight = scrollView.bounds.height / worldView.bounds.height
-        let minZoom = min(ratioWidth, ratioHeight)
-        scrollView.minimumZoomScale = CGFloat(minZoom)
-        scrollView.maximumZoomScale = CGFloat(4)
-        scrollView.setZoomScale(scrollView.minimumZoomScale, animated: false)
-    }
-    
 }
 
 extension WorldViewController: UIScrollViewDelegate {
@@ -155,22 +144,6 @@ extension WorldViewController: TerritoryInfoViewControllerDelegate {
         guard let selectedTerritory = selectedTerritory else { return }
         guard let selectedTerritoryLayer = selectedTerritoryLayer else { return }
         completion(selectedTerritory, selectedTerritoryLayer)
-    }
-    
-    func giveTerritory(regent: String) {
-        guard let selectedTerritory = selectedTerritory else { return }
-        guard let selectedTerritoryLayer = selectedTerritoryLayer else { return }
-        
-        if !selectedTerritory.hasOwner {
-            selectedTerritory.regent = regent
-            
-            selectedTerritory.hasOwner = true
-            selectedTerritoryLayer.fillColor = CGColor(srgbRed: 255, green: 0, blue: 0, alpha: 0.5)
-            
-            availableAreaLbl.text = "Área disponível: " + String(format: "%.2f", availableArea)
-            
-            WorldSingleton.shared().saveWorld()
-        }
     }
 }
 

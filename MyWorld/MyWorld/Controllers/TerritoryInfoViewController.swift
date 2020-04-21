@@ -10,7 +10,6 @@ import UIKit
 
 protocol TerritoryInfoViewControllerDelegate {
     func loadTerritoryInfo(completion: (_ territory: Territory, _ territoryLayer: CAShapeLayer) -> Void)
-    func giveTerritory(regent: String)
 }
 
 class TerritoryInfoViewController: UIViewController {
@@ -30,7 +29,7 @@ class TerritoryInfoViewController: UIViewController {
         title = "Info"
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Fechar", style: .done, target: self, action: #selector(close))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Doar", style: .plain, target: self, action: #selector(give))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Atribuir", style: .plain, target: self, action: #selector(give))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +50,7 @@ class TerritoryInfoViewController: UIViewController {
         guard let territorySize = territoryLayer.path?.boundingBox.size else { return }
         DispatchQueue.main.async {
             self.drawTerritory(vertices: self.territory.vertices, size: territorySize)
-        }
+        }        
     }
     
     @objc func close() {
@@ -59,9 +58,40 @@ class TerritoryInfoViewController: UIViewController {
     }
     
     @objc func give() {
-        guard let vc = Bundle.main.loadNibNamed("GiveTerritoryView", owner: nil, options: nil)?.first as? GiveTerritoryViewController else {return}
-        vc.delegate = self
-        navigationController?.pushViewController(vc, animated: true)
+        let alert = UIAlertController(title: "Atribuir regente",
+                                      message: "Máximo 20 caracteres",
+                                      preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel)
+        
+        let confirmAction = UIAlertAction(title: "Confirmar", style: .default) { (action) in
+            // Limitando o nome para 20 caracteres
+            guard let regentName = alert.textFields?.first?.text,
+                !regentName.isEmpty,
+                regentName.count <= 20 else { return }
+            
+            guard let contractVC = Bundle.main.loadNibNamed("ContractView", owner: nil, options: nil)?.first as? ContractViewController else { return }
+            
+            contractVC.delegate = self
+            
+            if !self.territory.hasOwner {
+                self.territory.regent = regentName
+                
+                self.territory.hasOwner = true
+                
+                WorldSingleton.shared().saveWorld()
+            }
+            
+            self.navigationController?.pushViewController(contractVC, animated: true)
+        }
+        
+        alert.addTextField()
+        
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        
+        present(alert, animated: true)
     }
     
     @objc func take() {
@@ -112,17 +142,11 @@ class TerritoryInfoViewController: UIViewController {
         }
         return origin
     }
-    
-    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
-        territoryView.layer.sublayers?.removeAll()
-        guard let territorySize = territoryLayer.path?.boundingBox.size else { return }
-        drawTerritory(vertices: territory.vertices, size: territorySize)
-    }
 }
 
-extension TerritoryInfoViewController: GiveTerritoryViewControllerDelegate {
-    func giveTerritory(regent: String) {
-        delegate?.giveTerritory(regent: regent)
+extension TerritoryInfoViewController: ContractViewControllerDelegate {
+    func setup(_ completion: (Territory) -> Void) {
+        completion(territory)
     }
 }
 
@@ -142,22 +166,5 @@ extension CGSize {
         }
         
         return boundingSize;
-    }
-    
-    static func aspectFill(_ aspectRatio :CGSize, _ minimumSize: CGSize) -> CGSize {
-        let aspectRatio = aspectRatio
-        var minimumSize = minimumSize
-        
-        let mW = minimumSize.width / aspectRatio.width;
-        let mH = minimumSize.height / aspectRatio.height;
-        
-        if( mH > mW ) {
-            minimumSize.width = minimumSize.height / aspectRatio.height * aspectRatio.width;
-        }
-        else if( mW > mH ) {
-            minimumSize.height = minimumSize.width / aspectRatio.width * aspectRatio.height;
-        }
-        
-        return minimumSize;
     }
 }

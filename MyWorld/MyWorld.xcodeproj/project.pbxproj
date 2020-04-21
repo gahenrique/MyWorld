@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C005A777244A61EA008A5ECF /* WorldSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005A776244A61EA008A5ECF /* WorldSingleton.swift */; };
-		C005A779244AEEAB008A5ECF /* GiveTerritoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C005A778244AEEAB008A5ECF /* GiveTerritoryView.xib */; };
-		C005A77B244AF038008A5ECF /* GiveTerritoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005A77A244AF038008A5ECF /* GiveTerritoryViewController.swift */; };
 		C00BD723244A46FF0063A94C /* TerritoryInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C00BD722244A46FF0063A94C /* TerritoryInfoView.xib */; };
 		C00BD725244A47570063A94C /* TerritoryInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00BD724244A47570063A94C /* TerritoryInfoViewController.swift */; };
 		C01692F52449182200E4F6F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C01692F42449182200E4F6F7 /* Assets.xcassets */; };
@@ -25,14 +23,11 @@
 		C0A8BC5224493F7700F87C1B /* FortunesAlgorithm in Frameworks */ = {isa = PBXBuildFile; productRef = C0A8BC5124493F7700F87C1B /* FortunesAlgorithm */; };
 		C0CA40AE244AFD9100A448C1 /* ContractView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CA40AD244AFD9100A448C1 /* ContractView.xib */; };
 		C0CA40B0244AFDC500A448C1 /* ContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CA40AF244AFDC500A448C1 /* ContractViewController.swift */; };
-		C0CA40B2244AFF2200A448C1 /* DocumentViewPDF.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CA40B1244AFF2200A448C1 /* DocumentViewPDF.xib */; };
 		C0F42588244D04C10063DD73 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F42587244D04C10063DD73 /* World.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C005A776244A61EA008A5ECF /* WorldSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldSingleton.swift; sourceTree = "<group>"; };
-		C005A778244AEEAB008A5ECF /* GiveTerritoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiveTerritoryView.xib; sourceTree = "<group>"; };
-		C005A77A244AF038008A5ECF /* GiveTerritoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveTerritoryViewController.swift; sourceTree = "<group>"; };
 		C00BD722244A46FF0063A94C /* TerritoryInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TerritoryInfoView.xib; sourceTree = "<group>"; };
 		C00BD724244A47570063A94C /* TerritoryInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerritoryInfoViewController.swift; sourceTree = "<group>"; };
 		C01692F42449182200E4F6F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,7 +44,6 @@
 		C0A8BC4924493AD300F87C1B /* WorldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldView.swift; sourceTree = "<group>"; };
 		C0CA40AD244AFD9100A448C1 /* ContractView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContractView.xib; sourceTree = "<group>"; };
 		C0CA40AF244AFDC500A448C1 /* ContractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
-		C0CA40B1244AFF2200A448C1 /* DocumentViewPDF.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentViewPDF.xib; sourceTree = "<group>"; };
 		C0F42587244D04C10063DD73 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,9 +105,7 @@
 				C042FE96244D70E900F222FD /* TerritoryCell.swift */,
 				C0A8BC4924493AD300F87C1B /* WorldView.swift */,
 				C00BD722244A46FF0063A94C /* TerritoryInfoView.xib */,
-				C005A778244AEEAB008A5ECF /* GiveTerritoryView.xib */,
 				C0CA40AD244AFD9100A448C1 /* ContractView.xib */,
-				C0CA40B1244AFF2200A448C1 /* DocumentViewPDF.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -133,7 +125,6 @@
 				C042FE94244D70C400F222FD /* TerritoriesListViewController.swift */,
 				C0A8BC47244939FB00F87C1B /* WorldViewController.swift */,
 				C00BD724244A47570063A94C /* TerritoryInfoViewController.swift */,
-				C005A77A244AF038008A5ECF /* GiveTerritoryViewController.swift */,
 				C0CA40AF244AFDC500A448C1 /* ContractViewController.swift */,
 				C01A701C244B356300787E67 /* ConfigViewController.swift */,
 			);
@@ -207,9 +198,7 @@
 				C0CA40AE244AFD9100A448C1 /* ContractView.xib in Resources */,
 				C0A04EF12449100F0003E1AE /* LaunchScreen.storyboard in Resources */,
 				C00BD723244A46FF0063A94C /* TerritoryInfoView.xib in Resources */,
-				C0CA40B2244AFF2200A448C1 /* DocumentViewPDF.xib in Resources */,
 				C01692F52449182200E4F6F7 /* Assets.xcassets in Resources */,
-				C005A779244AEEAB008A5ECF /* GiveTerritoryView.xib in Resources */,
 				C0A04EE92449100D0003E1AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,7 +221,6 @@
 				C0A8BC48244939FB00F87C1B /* WorldViewController.swift in Sources */,
 				C0CA40B0244AFDC500A448C1 /* ContractViewController.swift in Sources */,
 				C042FE97244D70E900F222FD /* TerritoryCell.swift in Sources */,
-				C005A77B244AF038008A5ECF /* GiveTerritoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
