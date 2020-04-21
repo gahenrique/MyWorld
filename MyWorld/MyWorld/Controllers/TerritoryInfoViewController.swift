@@ -96,7 +96,7 @@ class TerritoryInfoViewController: UIViewController {
     
     @objc func take() {
         territory.hasOwner = false
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Doar", style: .plain, target: self, action: #selector(give))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Atribuir", style: .plain, target: self, action: #selector(give))
         ownerLbl.text = "Nenhum regente"
         ownerLbl.textColor = UIColor.systemRed
         WorldSingleton.shared().saveWorld()
