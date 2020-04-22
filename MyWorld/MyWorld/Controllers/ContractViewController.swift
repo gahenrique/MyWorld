@@ -15,6 +15,7 @@ protocol ContractViewControllerDelegate {
 
 class ContractViewController: UIViewController {
     
+    var pdfView: PDFView?
     var delegate: ContractViewControllerDelegate?
     var territory: Territory?
 
@@ -32,7 +33,7 @@ class ContractViewController: UIViewController {
 
         Pelo presente documento, fica justo e contratado o que segue:
 
-        CLÁUSULA 1ª - O Líder do planeta, declara ser o proprietário legítimo do território de código \(territory.code), localizado em (\(Int(territory.site.y)), \(Int(territory.site.x))) e área total de \(territory.area)kmˆ2.
+        CLÁUSULA 1ª - O Líder do planeta, declara ser o proprietário legítimo do território de código \(territory.code), localizado em (\(Int(territory.site.y)), \(Int(territory.site.x))) e área total de \(String(format: "%.2f", territory.area))kmˆ2.
 
         CLÁUSULA 2ª - É de livre e espontânea vontade do líder supremo, não existindo vício de vontade de qualquer pessoa, fazer a atribuição, ao \(regent) transferindo desde já ao novo regente os direitos de administração do território.
 
@@ -54,13 +55,15 @@ class ContractViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
-        navigationItem.leftBarButtonItem?.isEnabled = false
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share))
+//        navigationItem.leftBarButtonItem?.isEnabled = false
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Fechar", style: .done, target: self, action: #selector(close))
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let pdfView = PDFView(frame: self.view.bounds)
+        pdfView = PDFView(frame: self.view.bounds)
+        
+        guard let pdfView = pdfView else { return }
         self.view.addSubview(pdfView)
         
         pdfView.displayDirection = .vertical
@@ -108,6 +111,13 @@ class ContractViewController: UIViewController {
         
         guard let doc = PDFDocument(data: data) else { return nil }
         return doc
+    }
+    
+    @objc private func share() {
+        guard let pdf = pdfView?.document?.dataRepresentation() else {return }
+        let activityViewController = UIActivityViewController(activityItems: [pdf], applicationActivities: nil)
+
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
     @objc private func close() {
