@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "FortunesAlgorithm",
+        "repositoryURL": "https://github.com/fewlinesofcode/FortunesAlgorithm",
+        "state": {
+          "branch": null,
+          "revision": "f11e474aab03d732eab094d86e9fee59e00d7737",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
